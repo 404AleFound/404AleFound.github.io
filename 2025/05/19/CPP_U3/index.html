@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="处理数据面向对象编程的本质是设计并扩展自己的数据类型。设计自己的数据类型就是让类型与数据相匹配。 内置的 C++数据类型分为两类：基本类型和复合类型。本章主要介绍 C++的基本类型：浮点数和整数。第四章将介绍在基本类型的基础上创建的复合类型，包括数组、字符串、指针和结构。  变量名的命名规则数据类型声明含义，为其变量分配合适的内存空间。 整型作用：整型变量表示的是整数类型的数据 C++中能够表示整">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/05/19/CPP_U3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="处理数据面向对象编程的本质是设计并扩展自己的数据类型。设计自己的数据类型就是让类型与数据相匹配。 内置的 C++数据类型分为两类：基本类型和复合类型。本章主要介绍 C++的基本类型：浮点数和整数。第四章将介绍在基本类型的基础上创建的复合类型，包括数组、字符串、指针和结构。  变量名的命名规则数据类型声明含义，为其变量分配合适的内存空间。 整型作用：整型变量表示的是整数类型的数据 C++中能够表示整">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-05-19T05:02:25.589Z">
+<meta property="article:modified_time" content="2025-05-13T14:16:51.513Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-CPP_U3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/05/19/CPP_U3/" class="article-date">
+  <time class="dt-published" datetime="2025-05-19T05:02:25.589Z" itemprop="datePublished">2025-05-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="处理数据"><a href="#处理数据" class="headerlink" title="处理数据"></a>处理数据</h1><p>面向对象编程的本质是设计并扩展自己的数据类型。设计自己的数据类型就是让类型与数据相匹配。</p>
+<p>内置的 C++数据类型分为两类：基本类型和复合类型。本章主要介绍 C++的基本类型：浮点数和整数。第四章将介绍在基本类型的基础上创建的复合类型，包括数组、字符串、指针和结构。 </p>
+<h2 id="变量名的命名规则"><a href="#变量名的命名规则" class="headerlink" title="变量名的命名规则"></a>变量名的命名规则</h2><p>数据类型声明含义，为其变量分配合适的内存空间。</p>
+<h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><p>作用：整型变量表示的是整数类型的数据</p>
+<p>C++中能够表示整型的类型有以下集中，区别在于占用的内存空间不同。</p>
+<p>一字节（byte）通常指的是8位的内存单位。从某种意义上说，字节指的就是描述计算机内存量的度量单位。</p>
+<p>各个类型占用空间大小规定如下：</p>
+<ul>
+<li>short至少8位；</li>
+<li>int至少与short一样长；</li>
+<li>long至少32位，且至少与int与一样长；</li>
+<li>long long 至少64位，且至少与long一样长。</li>
+</ul>
+<p>下表为常见的整型占用空间大小：</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>占用空间</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>short</td>
+<td>2字节</td>
+<td>$[-2^{15},2^{15}-1]$</td>
+</tr>
+<tr>
+<td><strong>int</strong></td>
+<td><strong>4字节</strong></td>
+<td>$[-2^{31},2^{31}-1]$</td>
+</tr>
+<tr>
+<td>long</td>
+<td>4字节（windows），4字节（Linux，32位），8字节（Linux，64位）</td>
+<td>$[-2^{31},2^{31}-1]$</td>
+</tr>
+<tr>
+<td>long long</td>
+<td>8字节</td>
+<td>$[-2^{63},2^{63}-1]$</td>
+</tr>
+</tbody></table>
+<p>由于不同系统中各个整型的最大长度可能不一样，而记住不同系统对于整型的规定又不现实。但是C++提供<code>sizeof</code>关键字统计变量对应的数据类型所占的内存空间。</p>
+<p>首先<code>sizeof</code>运算符返回类型或变量的长度，单位为字节，用法如下：</p>
+<p><code>sizeof(数据类型/变量)</code></p>
+<p>但是，仅仅知道字节是不够的，因为不同系统字节的位数可能是8位也可能是16位。通过<code>climits</code>头文件，可以获得整型的限制信息。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// limits.cpp -- some integer limits</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="type">int</span> n_int = INT_MAX;</span><br><span class="line">    <span class="type">short</span> n_short = SHRT_MAX;</span><br><span class="line">    <span class="type">long</span> n_long = LONG_MAX;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> n_long_long = LLONG_MAX;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// sizeof operator yield size of type or variable</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;short:&quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">short</span>) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;int: &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">int</span>) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;long: &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">long</span>) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;long long: &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">long</span> <span class="type">long</span>) &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h2><p>有效位（significant figure）是数字中有意义的位。</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>占用空间</th>
+<th>有效数字范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>float</td>
+<td>4字节</td>
+<td>7位有效数字</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8字节</td>
+<td>15~16位有效数字</td>
+</tr>
+</tbody></table>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// init.cpp -- type change in initialization</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    cout.<span class="built_in">setf</span>(ios_base::fixed, ios_base::floatfield);</span><br><span class="line">    <span class="type">float</span> tree = <span class="number">3</span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">guess</span><span class="params">(<span class="number">3.9832</span>)</span></span>;</span><br><span class="line">    <span class="type">int</span> debt = <span class="number">7.2E12</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;tree = &quot;</span> &lt;&lt; tree &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;guess = &quot;</span> &lt;&lt; guess &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;debt = &quot;</span> &lt;&lt; debt &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面是该程序在系统中的输出：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tree</span> = <span class="number">3</span>.<span class="number">000000</span></span><br><span class="line">guess = <span class="number">3</span></span><br><span class="line">debt = <span class="number">1634811904</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h3 id="初始化和赋值进行的转换"><a href="#初始化和赋值进行的转换" class="headerlink" title="初始化和赋值进行的转换"></a>初始化和赋值进行的转换</h3><h3 id="以-方式初始化时进行的转换"><a href="#以-方式初始化时进行的转换" class="headerlink" title="以{ }方式初始化时进行的转换"></a>以{ }方式初始化时进行的转换</h3><h3 id="表达式中的转换"><a href="#表达式中的转换" class="headerlink" title="表达式中的转换"></a>表达式中的转换</h3><h3 id="传递参数时的转换"><a href="#传递参数时的转换" class="headerlink" title="传递参数时的转换"></a>传递参数时的转换</h3><h3 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/05/19/CPP_U3/" data-id="cmaumcpzr0000ewr1d5ek6w92" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2025/05/19/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/05/19/CPP_U3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/19/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
