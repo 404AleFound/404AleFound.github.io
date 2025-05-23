@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2025 | 404AleFound&#39;s page</title>
+  <title>CPP_U4 | 404AleFound&#39;s page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="404AleFound&#39;s page">
-<meta property="og:url" content="http://example.com/archives/2025/index.html">
+  <meta name="description" content="复合类型数组数组的创建需要先声明，声明要求如下：  存储在每一个元素中的值的类型； 数组名； 数组中的元素数。  声明数组的通用格式如下： typeName arrayName[arraySize]; 表达式arraySize表示指定元素的数目，必须为整型常数或者const值，也可以是常量表达式，即其的值在编译时是已知的，不能是变量，变量的值是在程序运行时产生的。 数组中的元素可以通过下标或者索引">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CPP_U4">
+<meta property="og:url" content="http://example.com/2025/05/23/CPP_U4/index.html">
 <meta property="og:site_name" content="404AleFound&#39;s page">
+<meta property="og:description" content="复合类型数组数组的创建需要先声明，声明要求如下：  存储在每一个元素中的值的类型； 数组名； 数组中的元素数。  声明数组的通用格式如下： typeName arrayName[arraySize]; 表达式arraySize表示指定元素的数目，必须为整型常数或者const值，也可以是常量表达式，即其的值在编译时是已知的，不能是变量，变量的值是在程序运行时产生的。 数组中的元素可以通过下标或者索引">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-05-23T04:49:23.832Z">
+<meta property="article:modified_time" content="2025-05-23T04:49:00.859Z">
 <meta property="article:author" content="404AleFound">
 <meta name="twitter:card" content="summary">
   
@@ -150,97 +154,279 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-CPP_U4" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      CPP_U4
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2025" class="archive-year">2025</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2025/05/23/CPP_U4/" class="archive-article-date">
+
+        
+        <a href="/2025/05/23/CPP_U4/" class="archive-article-date">
   	<time datetime="2025-05-23T04:49:23.832Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-05-23</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2025/05/23/CPP_U4/">CPP_U4</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>数组的创建需要先声明，声明要求如下：</p>
+<ul>
+<li>存储在每一个元素中的值的类型；</li>
+<li>数组名；</li>
+<li>数组中的元素数。</li>
+</ul>
+<p>声明数组的通用格式如下：</p>
+<p><code>typeName arrayName[arraySize];</code></p>
+<p>表达式<code>arraySize</code>表示指定元素的数目，必须为整型常数或者const值，也可以是常量表达式，即其的值在编译时是已知的，不能是变量，变量的值是在程序运行时产生的。</p>
+<p>数组中的元素可以通过下标或者索引单独访问，且索引是从0开始的。</p>
+<p>编译器不会检查使用的下标是否有效，例如如果将一个下标赋给不存在的元素month[101]，编译器并不会指出错误。但是程序运行后这种赋值可能会引发问题。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// arrayone.cpp -- small arrays of integers</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="type">int</span> yams[<span class="number">3</span>];</span><br><span class="line">    yams[<span class="number">0</span>] = <span class="number">7</span>;</span><br><span class="line">    yams[<span class="number">1</span>] = <span class="number">8</span>;</span><br><span class="line">    yams[<span class="number">2</span>] = <span class="number">6</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> yamcosts[<span class="number">3</span>] = &#123;<span class="number">20</span>, <span class="number">30</span> ,<span class="number">5</span>&#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>程序说明</p>
+<p>C++程序允许在声明语句中初始化数组元素，如下：</p>
+<p><code>int yamcosts[3] = &#123;20, 30, 5&#125;;</code></p>
+<p>数组初始化规则：</p>
+<ul>
+<li>只有在定义数组时才能进行初始化，其余时刻就不能了</li>
+<li>初始化数组时，提供的值可以少于数组的元素数目，其余元素将被编译器设置为0；</li>
+<li>如果初始化时，没有规定数组的数目，即方括号内为空，则C++编译器将根据初始化的元素的个数作为数组的数目；</li>
+</ul>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>字符串时存储在内存的连续字节中的一系列字符，C++处理字符串的方式有两种，一种是来自C语言的C风格字符串，而另一种则是基于string类库的方法。对于来自C语言风格的字符串每个字符都被存储在char数组之中，而string类库则单独定义了一个类对象string来存储数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[字符串]</span><br><span class="line">B[存储于char数组中]</span><br><span class="line">C[存储于string对象中]</span><br><span class="line">A--&gt;B--&gt;D</span><br><span class="line">D[C语言风格]</span><br><span class="line">A--&gt;C</span><br></pre></td></tr></table></figure>
 
+<h3 id="C-style-string-类"><a href="#C-style-string-类" class="headerlink" title="C-style string 类"></a>C-style string 类</h3><h4 id="字符串的初始化"><a href="#字符串的初始化" class="headerlink" title="字符串的初始化"></a>字符串的初始化</h4><p>字符串的存储在连续字节中的一系列字符可以将字符串存储在char数组中，其中每一个数组都位于自己的数组元素中，对于C风格的字符串其以空字符（null character）结尾，空字符被写作<code>\0</code>，其ASCII码为0，用来标记字符串的结尾。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> dog[<span class="number">8</span>] = &#123;<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;s&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;o&#x27;</span>&#125;; <span class="comment">// not a string</span></span><br><span class="line"><span class="type">char</span> cat[<span class="number">8</span>] = &#123;<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;v&#x27;</span>, <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;f&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;\0&#x27;</span>&#125;: <span class="comment">// is a string</span></span><br></pre></td></tr></table></figure>
+
+<p>对于上面数组<code>cat</code>，对于例如<code>cout</code>等函数，其将逐元素的处理字符串中的各个元素，直到检测到空字符<code>\0</code>；而对于下方的数组<code>cat</code>，其也将被逐元素处理，但是由于其不是字符串，<code>cout</code>等函数将打印出数组中的所有8个字母，并且其还会将该数组内存后的各个字节解释为要打印的字符，直到遇到空字符为止。由于空字符在内存中很常见，因此该过程也很快将会结束。</p>
+<p>字符串常量(string constant)或字符串字面值(string literal)是一种更好的字符数组初始化的方式。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> bird&#123;<span class="number">11</span>&#125; = <span class="string">&quot;Mr. Cheeps&quot;</span>;</span><br><span class="line"><span class="type">char</span> fish[] = <span class="string">&quot;Bubbles&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>用双引号括起来的字符串隐式地包括结尾的空字符，因此不用显式地包括他它</p>
+<h4 id="字符串常量和字符常量"><a href="#字符串常量和字符常量" class="headerlink" title="字符串常量和字符常量"></a>字符串常量和字符常量</h4><p>注意，字符串常量和字符常量有本质区别，例如字符常量<code>&#39;S&#39;</code>是字符串编码的简写表示。ASCII系统上，<code>&#39;S&#39;</code>只是83的另一种写法，因此下面语句将83赋给变量。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> shirt_sizes = <span class="string">&#x27;S&#x27;</span>; <span class="comment">// this is fine</span></span><br></pre></td></tr></table></figure>
+
+<p>但是，字符串常量<code>&quot;S&quot;</code>则不是如此，其表示的是两个字符<code>&#39;S&#39;</code>和<code>&#39;\0&#39;</code>组成的字符串。更糟糕的是<code>“S”</code>实际上表示的是字符串的所在的内存地址。因此下面的语句实际上将一个地址赋予给变量。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> shirt_sizes = <span class="string">&quot;S&quot;</span>; <span class="comment">// illegal type mismatch</span></span><br></pre></td></tr></table></figure>
+
+<p>地址在C++中是一种独立的类型。</p>
+<h4 id="拼接字符串常量"><a href="#拼接字符串常量" class="headerlink" title="拼接字符串常量"></a>拼接字符串常量</h4><p>有时候字符串很长无法被放到一行中。C++允许拼接字符串字面值，即将两个用引号括起来的字符串合并为一个。任何两个由空白（空格、制表符和换行符）分隔的字符串常量都将自动拼接为一个。以下表达都是等效的。注意，拼接时不会在被连接的字符串之间添加空格，第二个字符串的第一个字符将紧跟在第一个字符串最后一个字符后面，不考虑<code>\0</code>，第一个字符串的<code>\0</code>字符将被第二个字符串的第一个字符取代。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; <span class="string">&quot;I&#x27;d give my right arm to be&quot;</span> <span class="string">&quot;a great violinist. \n&quot;</span>;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;I&#x27;d give my right arm to ba a great violinist.\n&quot;</span>;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;I&#x27;d give my right arm to be&quot;</span></span><br><span class="line">    <span class="string">&quot;a great violinist. \n&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// string.cpp -- storing strings in an array</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line"><span class="function">&#123;</span></span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> Size = <span class="number">15</span>;</span><br><span class="line">    <span class="type">char</span> name1[Size];</span><br><span class="line">    <span class="type">char</span> name2[Size] = <span class="string">&quot;C++owboy&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串的输入"><a href="#字符串的输入" class="headerlink" title="字符串的输入"></a>字符串的输入</h4><p>本部分介绍如何将键盘的输入读取到字符串数组中去。</p>
+<ol>
+<li><p>直接使用<code>cin</code>函数</p>
+<p>使用方法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// instr1.cpp -- reading more than one string</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> ArSize = <span class="number">20</span>;</span><br><span class="line">    <span class="type">char</span> name[ArSize];</span><br><span class="line">    <span class="type">char</span> dessert[ArSize];</span><br><span class="line">    </span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter your name:\n&quot;</span>;</span><br><span class="line">    cin &gt;&gt; name;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter your favorite desert:\n&quot;</span>;</span><br><span class="line">    cin &gt;&gt; dessert;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;I have some delicious &quot;</span>&lt;&lt; dessert; </span><br><span class="line">    cout &lt;&lt; <span class="string">&quot; for you, &quot;</span>&lt;&lt; name &lt;&lt; <span class="string">&quot;.\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>输出结果</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Enter your name:</span><br><span class="line">Le Jiang</span><br><span class="line">Enter your favorite desert:</span><br><span class="line">I have some delicious Jiang <span class="keyword">for</span> you, Le.</span><br></pre></td></tr></table></figure>
+
+<p>原因分析：</p>
+<p><code>cin</code>通过命令台中输入行中的空格来确定字符串<code>\0</code>的位置，也就是<code>cin</code>函数一次仅仅能读取一个单词。上述代码中，第一个<code>cin</code>获取得到Le后结束运行，第二个<code>cin</code>读取到的是Jiang就直接进入下一步了。</p>
+<p>不足之处：</p>
+<p>一次仅仅能读取一个单词，且当输入的字符串长度比定义的长度长时没有做出处理。</p>
+</li>
+<li><p>使用<code>getline()</code>函数</p>
+<p>使用方法：<code>getline(the name of variable, the amount of str to input)</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// instr2.cpp -- reading more than one string</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> ArSize = <span class="number">20</span>;</span><br><span class="line">    <span class="type">char</span> name[ArSize];</span><br><span class="line">    <span class="type">char</span> dessert[ArSize];</span><br><span class="line">    </span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter your name:\n&quot;</span>;</span><br><span class="line">    cin.<span class="built_in">getline</span>(name, ArSize);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter your favorite desert:\n&quot;</span>;</span><br><span class="line">    cin.<span class="built_in">getline</span>(dessert, ArSize);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;I have some delicious &quot;</span>&lt;&lt; dessert; </span><br><span class="line">    cout &lt;&lt; <span class="string">&quot; for you, &quot;</span>&lt;&lt; name &lt;&lt; <span class="string">&quot;.\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Enter your name:</span><br><span class="line">Le Jiang</span><br><span class="line">Enter your favorite desert:</span><br><span class="line">Cake</span><br><span class="line">I have some delicious Cake <span class="keyword">for</span> you, Le Jiang.</span><br></pre></td></tr></table></figure>
+
+
+
+<p>运行解析：</p>
+<p><code>cin.getline()</code>通过换行符来确定输入的结尾。该函数包含两个参数，第一个参数为要输入的变量的名字，第二个参数为需要读取的字符数。如果这个这个数字为20则函数最多读取19个，因为要包含最后一个空字符。当读取达到规定数目，或者遇到换行符时停止读取，并用空字符代替换行符。</p>
+</li>
+<li><p>使用<code>cin.get()</code>函数</p>
+<p>与<code>cin.getline()</code>不同的是，该函数并不读取换行符，而是保留换行符在输入端，这就导致下一次使用该函数进行读取时，首先会读取到一个换行符。为了解决该问题，使用<code>cin.get()</code>来解决如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cin.<span class="built_in">get</span>(name, ArSize);</span><br><span class="line">cin.<span class="built_in">get</span>();</span><br><span class="line">cin.<span class="built_in">get</span>(dessert.ArSize);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>也可以通过函数重载的方式，写为如下形式：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cin.<span class="built_in">get</span>(name, ArSize).<span class="built_in">get</span>();</span><br><span class="line">cin.<span class="built_in">get</span>(dessert.ArSize);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>为什么要使用<code>cin.get()</code>而非<code>cin.getline()</code>，书中如是说：老式的表达中没有实现<code>cin.getline()</code>；其次，<code>get()</code>使得输入更加仔细。</p>
+</li>
+<li><p>混合输入字符串和数字</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//numstr.cpp -- following number input with line input</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;What year was your house built?\n&quot;</span>;</span><br><span class="line">    <span class="type">int</span> year;</span><br><span class="line">    cin &gt;&gt; year;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;What is its street address?\n&quot;</span>;</span><br><span class="line">    <span class="type">char</span> address[<span class="number">80</span>];</span><br><span class="line">    cin.<span class="built_in">get</span>();<span class="comment">// or make &#x27;(cin &gt;&gt; year).get()&#x27; instead</span></span><br><span class="line">    cin.<span class="built_in">getline</span>(address, <span class="number">80</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Year built:&quot;</span> &lt;&lt; year &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Address: &quot;</span> &lt;&lt; address &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果如下：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">What year was your house built?</span><br><span class="line"><span class="number">2015</span></span><br><span class="line">What is its street address?</span><br><span class="line">QueenPark</span><br><span class="line">Year built:<span class="number">2015</span></span><br><span class="line"><span class="function">Address: <span class="title">QueenPark</span></span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="string-类"><a href="#string-类" class="headerlink" title="string 类"></a>string 类</h3><h4 id="string类的初始化"><a href="#string类的初始化" class="headerlink" title="string类的初始化"></a>string类的初始化</h4><p>string类允许将列表初始化用作C风格字符串和string对象：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> first_date[] = &#123;<span class="string">&quot;Le Chapon Dodu&quot;</span>&#125;;</span><br><span class="line"><span class="type">char</span> second_data[] = &#123;<span class="string">&quot;The Elegant Plate&quot;</span>&#125;;</span><br><span class="line">string third_data = &#123;<span class="string">&quot;The Bread Bowl&quot;</span>&#125;;</span><br><span class="line">string fourth_data = &#123;<span class="string">&quot;Hank&#x27;s Fine Eats&quot;</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="赋值、拼接和附加"><a href="#赋值、拼接和附加" class="headerlink" title="赋值、拼接和附加"></a>赋值、拼接和附加</h4><p>string类可以直接将一个string对象赋给另一个string对象。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string str1;</span><br><span class="line">string str2 = <span class="string">&quot;Panther&quot;</span>;</span><br><span class="line">str1 = str2;</span><br></pre></td></tr></table></figure>
+
+<p>string类简化了字符串的合并操作。可以使用+将两个string对象合并起来，还可以使用+&#x3D;符号将字符串附加到string对象的末尾。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string str3;</span><br><span class="line">str3 = str1 + str2;</span><br><span class="line">str1 += str2;</span><br></pre></td></tr></table></figure>
+
+<p>也可以将C风格字符串或string对象与string对象相加，或将它们附加到string对象的末尾。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//strtype2.cpp -- assigning, adding, and appending</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    string s1 = <span class="string">&quot;penguin&quot;</span>;</span><br><span class="line">    string s2, s3;</span><br><span class="line"> 	s2 = s1;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;s1: &quot;</span>&lt;&lt; s1 &lt;&lt; <span class="string">&quot;; s2: &quot;</span> &lt;&lt; s2 &lt;&lt; <span class="string">&quot;; s3: &quot;</span> &lt;&lt; s3&lt;&lt;endl;</span><br><span class="line">    s2 = <span class="string">&quot;buzzard&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;s1: &quot;</span>&lt;&lt; s1 &lt;&lt; <span class="string">&quot;; s2: &quot;</span> &lt;&lt; s2 &lt;&lt; <span class="string">&quot;; s3: &quot;</span> &lt;&lt; s3&lt;&lt;endl;</span><br><span class="line">    s3 = s1 + s2;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;s1: &quot;</span>&lt;&lt; s1 &lt;&lt; <span class="string">&quot;; s2: &quot;</span> &lt;&lt; s2 &lt;&lt; <span class="string">&quot;; s3: &quot;</span> &lt;&lt; s3&lt;&lt;endl;</span><br><span class="line">    s1 += s2;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;s1: &quot;</span>&lt;&lt; s1 &lt;&lt; <span class="string">&quot;; s2: &quot;</span> &lt;&lt; s2 &lt;&lt; <span class="string">&quot;; s3: &quot;</span> &lt;&lt; s3&lt;&lt;endl;</span><br><span class="line">    s2 += <span class="string">&quot;for a day&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;s1: &quot;</span>&lt;&lt; s1 &lt;&lt; <span class="string">&quot;; s2: &quot;</span> &lt;&lt; s2 &lt;&lt; <span class="string">&quot;; s3: &quot;</span> &lt;&lt; s3&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出如下：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">终端连接成功</span><br><span class="line"><span class="function">s1: <span class="title">penguin</span>; <span class="title">s2</span>: <span class="title">penguin</span>; <span class="title">s3</span>: </span></span><br><span class="line"><span class="function"><span class="title">s1</span>: <span class="title">penguin</span>; <span class="title">s2</span>: <span class="title">buzzard</span>; <span class="title">s3</span>: </span></span><br><span class="line"><span class="function"><span class="title">s1</span>: <span class="title">penguin</span>; <span class="title">s2</span>: <span class="title">buzzard</span>; <span class="title">s3</span>: <span class="title">penguinbuzzard</span></span></span><br><span class="line"><span class="function"><span class="title">s1</span>: <span class="title">penguinbuzzard</span>; <span class="title">s2</span>: <span class="title">buzzard</span>; <span class="title">s3</span>: <span class="title">penguinbuzzard</span></span></span><br><span class="line"><span class="function"><span class="title">s1</span>: <span class="title">penguinbuzzard</span>; <span class="title">s2</span>: <span class="title">buzzardfor</span> <span class="title">a</span> <span class="title">day</span>; <span class="title">s3</span>: <span class="title">penguinbuzzard</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="string类的其他操作"><a href="#string类的其他操作" class="headerlink" title="string类的其他操作"></a>string类的其他操作</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//strtype2.cpp -- assigning, adding, and appending</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="type">char</span> charr1[<span class="number">20</span>];</span><br><span class="line">    <span class="type">char</span> charr2[<span class="number">20</span>] = <span class="string">&quot;jaguar&quot;</span>;</span><br><span class="line">    string str1;</span><br><span class="line">    string str2 = <span class="string">&quot;panther&quot;</span>;</span><br><span class="line"></span><br><span class="line">    str1 = str2;</span><br><span class="line">    <span class="built_in">strcpy</span>(charr1 ,charr2);</span><br><span class="line"></span><br><span class="line">    str1 += <span class="string">&quot; paste&quot;</span>;</span><br><span class="line">    <span class="built_in">strcat</span>(charr1, <span class="string">&quot; juice&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> len1 = str<span class="number">1.</span><span class="built_in">size</span>();</span><br><span class="line">    <span class="type">int</span> len2 = <span class="built_in">strlen</span>(charr1);</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The string &quot;</span> &lt;&lt; str1 &lt;&lt; <span class="string">&quot; contains &quot;</span></span><br><span class="line">         &lt;&lt; len1 &lt;&lt; <span class="string">&quot; characters.\n&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The C style string &quot;</span> &lt;&lt; charr1 &lt;&lt; <span class="string">&quot; contains &quot;</span></span><br><span class="line">         &lt;&lt; len2 &lt;&lt; <span class="string">&quot; characters\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出如下：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">终端连接成功</span><br><span class="line">The string panther paste contains <span class="number">13</span> characters.</span><br><span class="line">The C style string jaguar juice contains <span class="number">12</span> characters</span><br></pre></td></tr></table></figure>
+
+<p>由上，处理string对象的语法通常比C字符串函数简单，尤其对于一些复杂的操作时。函数<code>strlen()</code>，函数<code>strcpy()</code>，函数<code>strcat()</code>等函数均为使用C怨言风格的字符串。</p>
+<p>同样，和C语言字符串相似，也可以使用<code>cin</code>和<code>cout</code>来对string类的对象进行输入和输出，但其在读取一行时而不是一个单词时，使用的句法不同。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// strtype4.cpp -- line input</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="type">char</span> charr[<span class="number">20</span>];</span><br><span class="line">    string str;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Length of string in charr before input: &quot;</span></span><br><span class="line">    &lt;&lt; <span class="built_in">strlen</span>(charr) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Length of string in str before input: &quot;</span></span><br><span class="line">    &lt;&lt; str.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter a line of text:\n&quot;</span>;</span><br><span class="line">    cin.<span class="built_in">getline</span>(charr, <span class="number">20</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;You entered: &quot;</span>&lt;&lt; charr &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter another line of text:\n&quot;</span>;</span><br><span class="line">    <span class="built_in">getline</span>(cin, str);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;You entered: &quot;</span> &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Length of string in charr after input: &quot;</span></span><br><span class="line">    &lt;&lt; <span class="built_in">strlen</span>(charr) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Length of string in str after input: &quot;</span></span><br><span class="line">    &lt;&lt; str.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">终端连接成功</span><br><span class="line">Length of string <span class="keyword">in</span> charr before input: <span class="number">6</span></span><br><span class="line">Length of string <span class="keyword">in</span> str before input: <span class="number">0</span></span><br><span class="line">Enter a line of text:</span><br><span class="line">banaba</span><br><span class="line">You entered: banaba</span><br><span class="line">Enter another line of text:</span><br><span class="line">apple</span><br><span class="line">You entered: apple</span><br><span class="line">Length of string <span class="keyword">in</span> charr after input: <span class="number">6</span></span><br><span class="line">Length of string <span class="keyword">in</span> str after input: <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<p>注意，对于<code>charr</code>在未输入变量时，其将随机从内存中读取一个位置，直到遇到空字符为止，因此其长度是随机的。</p>
+<h2 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h2>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2025/05/23/CPP_U4/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2025/05/20/Music_List/" class="archive-article-date">
-  	<time datetime="2025-05-20T05:12:10.402Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-05-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2025/05/20/Music_List/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Music List</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2025/05/20/Music_List/">Music List</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2025/05/19/CPP_U3/" class="archive-article-date">
-  	<time datetime="2025-05-19T05:02:25.589Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-05-19</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -263,8 +449,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
