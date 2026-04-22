@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>
+  
+    0093 复原IP地址 | 404AleFound
+  
+</title>
+
+
+
+
+
+<meta name="author" content="John Doe">
+
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<meta name="description" content="回溯算法题目，通过递归搜索与剪枝策略求解组合或排列问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="0093 复原IP地址">
+<meta property="og:url" content="https://404alefound.github.io/2026/04/22/LeetCode/0093_%E5%A4%8D%E5%8E%9FIP%E5%9C%B0%E5%9D%80/index.html">
+<meta property="og:site_name" content="404AleFound">
+<meta property="og:description" content="回溯算法题目，通过递归搜索与剪枝策略求解组合或排列问题。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-04-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-22T14:32:00.735Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-title">404AleFound</a>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-list">
+        
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">Home</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archives" class="nav-link">Archives</a>
+            </li>
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="site-wrapper">
+    
+    <main class="site-main has-toc">
+      
+        <div class="main-content main-with-toc">
+          
+            
+
+          
+          <div class="content-area">
+            <article class="article">
+  
+    <header class="article-header article-header-full">
+      <h1 class="article-title">0093 复原IP地址</h1>
+      <div class="article-meta">
+        <time class="article-date">2026-04-22</time>
+        
+          <span class="article-separator">·</span>
+          <span class="article-updated">updated 2026-04-22</span>
+        
+        
+          <span class="article-separator">·</span>
+          <span class="article-category">
+            
+              
+              <a href="/categories/LeetCode/">LeetCode</a>
+            
+          </span>
+        
+      </div>
+    </header>
+  
+
+  <div class="article-content">
+    
+      <p>回溯算法题目，通过递归搜索与剪枝策略求解组合或排列问题。</p>
+<span id="more"></span>
+
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcodecn/problems/restore-ip-addresses">0093 复原IP地址</a></p>
+</blockquote>
+<div class="markdown-alert markdown-alert-note">
+  <p class="markdown-alert-title">
+    <svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
+    Note
+  </p>
+<p><strong>题解</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isIP</span><span class="hljs-params">(<span class="hljs-type">const</span> string&amp; s, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (l &gt; r || l &lt; <span class="hljs-number">0</span> || r &gt;= s.<span class="hljs-built_in">size</span>()) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">if</span> (l &lt; r &amp;&amp; s[l] == <span class="hljs-string">&#x27;0&#x27;</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-type">int</span> num = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = l; i &lt;= r; i++) &#123;<br>        num = num * <span class="hljs-number">10</span> + s[i] - <span class="hljs-string">&#x27;0&#x27;</span>;<br>        <span class="hljs-keyword">if</span> (num &gt; <span class="hljs-number">255</span> || num &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br>string path;<br>vector&lt;string&gt; res;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">backtracking</span><span class="hljs-params">(string s, <span class="hljs-type">int</span> index, <span class="hljs-type">int</span> count)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (count == <span class="hljs-number">3</span>) &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isIP</span>(s, index, s.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>)) &#123;<br>            path += s.<span class="hljs-built_in">substr</span>(index, s.<span class="hljs-built_in">size</span>() - index);<br>            res.<span class="hljs-built_in">push_back</span>(path);<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = index; i &lt; s.<span class="hljs-built_in">size</span>(); i++) &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isIP</span>(s, index, i)) &#123;<br>            string origin = path;<br>            path = path + s.<span class="hljs-built_in">substr</span>(index, i - index + <span class="hljs-number">1</span>) + <span class="hljs-string">&#x27;.&#x27;</span>;<br>            count++;<br>            <span class="hljs-built_in">backtracking</span>(s, i + <span class="hljs-number">1</span>, count);<br>            count--;<br>            path = origin;    <br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-function">vector&lt;string&gt; <span class="hljs-title">restoreIpAddresses</span><span class="hljs-params">(string s)</span> </span>&#123;<br>	<span class="hljs-built_in">backtracking</span>(s, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>	<span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>易错点</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// isIP() 的编写：</span><br><span class="hljs-comment">//	1. 检查左右指针大小</span><br><span class="hljs-comment">//	2. 检查指针边界</span><br><span class="hljs-comment">// 	3. 检查起始 0</span><br><span class="hljs-comment">// 	4. 检查数值大小</span><br><span class="hljs-keyword">if</span> (l &lt; r &amp;&amp; s[l] == <span class="hljs-string">&#x27;0&#x27;</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <span class="hljs-comment">// 必须为 &lt;，因为 0.0.0.0 是合法的，而01.01.0.0 是非法的</span><br><br><span class="hljs-comment">// &#x27;.&#x27;的添加</span><br>path = path + s.<span class="hljs-built_in">substr</span>(index, i - index + <span class="hljs-number">1</span>) + <span class="hljs-string">&#x27;.&#x27;</span>;<br><span class="hljs-comment">/* YOUR CODE HERE */</span><br><span class="hljs-built_in">backtracking</span>(s, i + <span class="hljs-number">1</span>, count); <span class="hljs-comment">// 必须为 i + 1，因为要跳过新添加的 &#x27;.&#x27;</span><br></code></pre></td></tr></table></figure>
+</div>
+
+    
+  </div>
+
+  
+</article>
+
+
+
+  <nav class="post-nav">
+    
+      <a href="/2026/04/22/LeetCode/0092_%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8_II/" class="post-nav-prev">
+        <span class="post-nav-label">← 上一页</span>
+        <span class="post-nav-title">0092 反转链表 II</span>
+      </a>
+    
+    
+      <a href="/2026/04/22/LeetCode/0102_%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/" class="post-nav-next">
+        <span class="post-nav-label">下一页 →</span>
+        <span class="post-nav-title">0102 二叉树的层序遍历</span>
+      </a>
+    
+  </nav>
+
+
+          </div>
+        </div>
+      
+    </main>
+  </div>
+
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <p class="copyright">
+      &copy; 2024 - 2026 John Doe
+    </p>
+    <p class="powered">
+      由 <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/404AleFound" target="_blank">Mininote</a>
+    </p>
+  </div>
+  
+    <button class="back-to-top" aria-label="返回顶部">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+  
+</footer>
+
+
+  
+    <script src="/js/main.js"></script>
+  
+</body>
+</html>

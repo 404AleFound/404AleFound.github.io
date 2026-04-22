@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>
+  
+    0022 括号生成 | 404AleFound
+  
+</title>
+
+
+
+
+
+<meta name="author" content="John Doe">
+
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<meta name="description" content="字符串处理题目，涉及字符匹配、子串查找或字符串变换技巧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="0022 括号生成">
+<meta property="og:url" content="https://404alefound.github.io/2026/04/22/LeetCode/0022_%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/index.html">
+<meta property="og:site_name" content="404AleFound">
+<meta property="og:description" content="字符串处理题目，涉及字符匹配、子串查找或字符串变换技巧。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-04-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-22T14:32:00.700Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-title">404AleFound</a>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-list">
+        
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">Home</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archives" class="nav-link">Archives</a>
+            </li>
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="site-wrapper">
+    
+    <main class="site-main has-toc">
+      
+        <div class="main-content main-with-toc">
+          
+            
+
+          
+          <div class="content-area">
+            <article class="article">
+  
+    <header class="article-header article-header-full">
+      <h1 class="article-title">0022 括号生成</h1>
+      <div class="article-meta">
+        <time class="article-date">2026-04-22</time>
+        
+          <span class="article-separator">·</span>
+          <span class="article-updated">updated 2026-04-22</span>
+        
+        
+          <span class="article-separator">·</span>
+          <span class="article-category">
+            
+              
+              <a href="/categories/LeetCode/">LeetCode</a>
+            
+          </span>
+        
+      </div>
+    </header>
+  
+
+  <div class="article-content">
+    
+      <p>字符串处理题目，涉及字符匹配、子串查找或字符串变换技巧。</p>
+<span id="more"></span>
+
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/generate-parentheses">0022 括号生成</a></p>
+</blockquote>
+<div class="markdown-alert markdown-alert-note">
+  <p class="markdown-alert-title">
+    <svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
+    Note
+  </p>
+<p><strong>题解</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp">vector&lt;string&gt; res;<br>string path;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">backtracking</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> left, <span class="hljs-type">int</span> right)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (path.<span class="hljs-built_in">size</span>() == <span class="hljs-number">2</span> * n) &#123;<br>        res.<span class="hljs-built_in">push_back</span>(path);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <br>    <span class="hljs-keyword">if</span> (left &lt; n) &#123;<br>        path.<span class="hljs-built_in">push_back</span>(<span class="hljs-string">&#x27;(&#x27;</span>);<br>        <span class="hljs-built_in">backtracking</span>(n, left + <span class="hljs-number">1</span>, right);<br>        path.<span class="hljs-built_in">pop_back</span>();<br>    &#125;<br>    <br>    <span class="hljs-keyword">if</span> (right &lt; left) &#123;<br>        path.<span class="hljs-built_in">push_back</span>(<span class="hljs-string">&#x27;)&#x27;</span>);<br>        <span class="hljs-built_in">backtracking</span>(n, left, right + <span class="hljs-number">1</span>);<br>        path.<span class="hljs-built_in">pop_back</span>();<br>    &#125;<br>&#125;<br><br><br><span class="hljs-function">vector&lt;string&gt; <span class="hljs-title">generateParenthesis</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>    <span class="hljs-built_in">backtracking</span>(n, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>易错点</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 为了抱枕括号的合理性：</span><br><span class="hljs-keyword">if</span> (right &lt; left) &#123;<br>	<span class="hljs-comment">/* 压入右括号 */</span><br>&#125;<br></code></pre></td></tr></table></figure>
+</div>
+
+    
+  </div>
+
+  
+</article>
+
+
+
+  <nav class="post-nav">
+    
+      <a href="/2026/04/22/LeetCode/0020_%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/" class="post-nav-prev">
+        <span class="post-nav-label">← 上一页</span>
+        <span class="post-nav-title">0020 有效的括号</span>
+      </a>
+    
+    
+      <a href="/2026/04/22/LeetCode/0023_%E5%90%88%E5%B9%B6K%E4%B8%AA%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/" class="post-nav-next">
+        <span class="post-nav-label">下一页 →</span>
+        <span class="post-nav-title">0023 合并K个排序链表</span>
+      </a>
+    
+  </nav>
+
+
+          </div>
+        </div>
+      
+    </main>
+  </div>
+
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <p class="copyright">
+      &copy; 2024 - 2026 John Doe
+    </p>
+    <p class="powered">
+      由 <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/404AleFound" target="_blank">Mininote</a>
+    </p>
+  </div>
+  
+    <button class="back-to-top" aria-label="返回顶部">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+  
+</footer>
+
+
+  
+    <script src="/js/main.js"></script>
+  
+</body>
+</html>
