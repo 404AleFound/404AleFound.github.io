@@ -27,15 +27,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<meta name="description" content="回溯算法题目，通过递归搜索与剪枝策略求解组合或排列问题。">
+<meta name="description" content="摘要：回溯算法题目，通过递归搜索与剪枝策略求解组合或排列问题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0093 复原IP地址">
 <meta property="og:url" content="https://404alefound.github.io/2026/04/22/LeetCode/0093_%E5%A4%8D%E5%8E%9FIP%E5%9C%B0%E5%9D%80/index.html">
 <meta property="og:site_name" content="404AleFound">
-<meta property="og:description" content="回溯算法题目，通过递归搜索与剪枝策略求解组合或排列问题。">
+<meta property="og:description" content="摘要：回溯算法题目，通过递归搜索与剪枝策略求解组合或排列问题。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-22T14:32:00.735Z">
+<meta property="article:modified_time" content="2026-04-23T13:25:34.800Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -91,7 +91,7 @@
         <time class="article-date">2026-04-22</time>
         
           <span class="article-separator">·</span>
-          <span class="article-updated">updated 2026-04-22</span>
+          <span class="article-updated">updated 2026-04-23</span>
         
         
           <span class="article-separator">·</span>
@@ -108,22 +108,20 @@
 
   <div class="article-content">
     
-      <p>回溯算法题目，通过递归搜索与剪枝策略求解组合或排列问题。</p>
+      <p>摘要：回溯算法题目，通过递归搜索与剪枝策略求解组合或排列问题。</p>
 <span id="more"></span>
 
 
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcodecn/problems/restore-ip-addresses">0093 复原IP地址</a></p>
-</blockquote>
 <div class="markdown-alert markdown-alert-note">
   <p class="markdown-alert-title">
     <svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
     Note
   </p>
-<p><strong>题解</strong></p>
+<p><strong>题目：</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/restore-ip-addresses">0093 复原IP地址</a></p>
+<p><strong>题解：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isIP</span><span class="hljs-params">(<span class="hljs-type">const</span> string&amp; s, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (l &gt; r || l &lt; <span class="hljs-number">0</span> || r &gt;= s.<span class="hljs-built_in">size</span>()) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">if</span> (l &lt; r &amp;&amp; s[l] == <span class="hljs-string">&#x27;0&#x27;</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-type">int</span> num = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = l; i &lt;= r; i++) &#123;<br>        num = num * <span class="hljs-number">10</span> + s[i] - <span class="hljs-string">&#x27;0&#x27;</span>;<br>        <span class="hljs-keyword">if</span> (num &gt; <span class="hljs-number">255</span> || num &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br>string path;<br>vector&lt;string&gt; res;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">backtracking</span><span class="hljs-params">(string s, <span class="hljs-type">int</span> index, <span class="hljs-type">int</span> count)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (count == <span class="hljs-number">3</span>) &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isIP</span>(s, index, s.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>)) &#123;<br>            path += s.<span class="hljs-built_in">substr</span>(index, s.<span class="hljs-built_in">size</span>() - index);<br>            res.<span class="hljs-built_in">push_back</span>(path);<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = index; i &lt; s.<span class="hljs-built_in">size</span>(); i++) &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isIP</span>(s, index, i)) &#123;<br>            string origin = path;<br>            path = path + s.<span class="hljs-built_in">substr</span>(index, i - index + <span class="hljs-number">1</span>) + <span class="hljs-string">&#x27;.&#x27;</span>;<br>            count++;<br>            <span class="hljs-built_in">backtracking</span>(s, i + <span class="hljs-number">1</span>, count);<br>            count--;<br>            path = origin;    <br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-function">vector&lt;string&gt; <span class="hljs-title">restoreIpAddresses</span><span class="hljs-params">(string s)</span> </span>&#123;<br>	<span class="hljs-built_in">backtracking</span>(s, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>	<span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p><strong>易错点</strong></p>
+<p><strong>易错点：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// isIP() 的编写：</span><br><span class="hljs-comment">//	1. 检查左右指针大小</span><br><span class="hljs-comment">//	2. 检查指针边界</span><br><span class="hljs-comment">// 	3. 检查起始 0</span><br><span class="hljs-comment">// 	4. 检查数值大小</span><br><span class="hljs-keyword">if</span> (l &lt; r &amp;&amp; s[l] == <span class="hljs-string">&#x27;0&#x27;</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <span class="hljs-comment">// 必须为 &lt;，因为 0.0.0.0 是合法的，而01.01.0.0 是非法的</span><br><br><span class="hljs-comment">// &#x27;.&#x27;的添加</span><br>path = path + s.<span class="hljs-built_in">substr</span>(index, i - index + <span class="hljs-number">1</span>) + <span class="hljs-string">&#x27;.&#x27;</span>;<br><span class="hljs-comment">/* YOUR CODE HERE */</span><br><span class="hljs-built_in">backtracking</span>(s, i + <span class="hljs-number">1</span>, count); <span class="hljs-comment">// 必须为 i + 1，因为要跳过新添加的 &#x27;.&#x27;</span><br></code></pre></td></tr></table></figure>
 </div>
 
@@ -137,9 +135,9 @@
 
   <nav class="post-nav">
     
-      <a href="/2026/04/22/LeetCode/0088_%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/" class="post-nav-prev">
+      <a href="/2026/04/22/LeetCode/0082_%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0II/" class="post-nav-prev">
         <span class="post-nav-label">← 上一页</span>
-        <span class="post-nav-title">0088 合并两个有序数组</span>
+        <span class="post-nav-title">0082 删除排序链表中的重复元素II</span>
       </a>
     
     

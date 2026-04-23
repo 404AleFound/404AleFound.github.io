@@ -27,15 +27,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<meta name="description" content="矩阵操作题目，考察二维数组的遍历与变换技巧。">
+<meta name="description" content="摘要：矩阵操作题目，考察二维数组的遍历与变换技巧。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0054 螺旋矩阵">
 <meta property="og:url" content="https://404alefound.github.io/2026/04/22/LeetCode/0054_%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/index.html">
 <meta property="og:site_name" content="404AleFound">
-<meta property="og:description" content="矩阵操作题目，考察二维数组的遍历与变换技巧。">
+<meta property="og:description" content="摘要：矩阵操作题目，考察二维数组的遍历与变换技巧。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-22T14:32:00.723Z">
+<meta property="article:modified_time" content="2026-04-23T13:25:03.529Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -91,7 +91,7 @@
         <time class="article-date">2026-04-22</time>
         
           <span class="article-separator">·</span>
-          <span class="article-updated">updated 2026-04-22</span>
+          <span class="article-updated">updated 2026-04-23</span>
         
         
           <span class="article-separator">·</span>
@@ -108,24 +108,22 @@
 
   <div class="article-content">
     
-      <p>矩阵操作题目，考察二维数组的遍历与变换技巧。</p>
+      <p>摘要：矩阵操作题目，考察二维数组的遍历与变换技巧。</p>
 <span id="more"></span>
 
 
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcodecn/problems/spiral-matrix">0054 螺旋矩阵</a></p>
-</blockquote>
 <div class="markdown-alert markdown-alert-note">
   <p class="markdown-alert-title">
     <svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
     Note
   </p>
+<p><strong>题目：</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/spiral-matrix">0054 螺旋矩阵</a></p>
 <p><strong>题目</strong></p>
 <p>给你一个 <code>m</code> 行 <code>n</code> 列的矩阵 <code>matrix</code> ，请按照顺时针螺旋顺序，返回矩阵中的所有元素。</p>
-<p><strong>题解</strong></p>
+<p><strong>题解：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">spiralOrder</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;<br>    <span class="hljs-type">int</span> up = <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> down = matrix.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;<br>    <span class="hljs-type">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> right = matrix[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;<br>    vector&lt;<span class="hljs-type">int</span>&gt; res;<br>    <span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = left; i &lt;= right; i++) &#123;<br>            res.<span class="hljs-built_in">push_back</span>(matrix[up][i]);<br>        &#125;<br>        up++;<br>        <span class="hljs-keyword">if</span> (up &gt; down) <span class="hljs-keyword">break</span>;<br>        <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = up; i &lt;= down; i++) &#123;<br>            res.<span class="hljs-built_in">push_back</span>(matrix[i][right]);<br>        &#125;<br>        right--;<br>        <span class="hljs-keyword">if</span> (left &gt; right) <span class="hljs-keyword">break</span>;<br>        <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = right; i &gt;= left; i--) &#123;<br>            res.<span class="hljs-built_in">push_back</span>(matrix[down][i]);<br>        &#125;<br>        down--;<br>        <span class="hljs-keyword">if</span> (up &gt; down) <span class="hljs-keyword">break</span>;<br>        <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = down; i &gt;= up; i--) &#123;<br>            res.<span class="hljs-built_in">push_back</span>(matrix[i][left]);<br>        &#125;<br>        left++;<br>        <span class="hljs-keyword">if</span> (left &gt; right) <span class="hljs-keyword">break</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p><strong>易错点</strong></p>
+<p><strong>易错点：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 注意索引的顺序和边界的加减变化</span><br></code></pre></td></tr></table></figure>
 </div>
 
@@ -139,15 +137,15 @@
 
   <nav class="post-nav">
     
-      <a href="/2026/04/22/LeetCode/0053_%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C/" class="post-nav-prev">
+      <a href="/2026/04/22/LeetCode/0046_%E5%85%A8%E6%8E%92%E5%88%97/" class="post-nav-prev">
         <span class="post-nav-label">← 上一页</span>
-        <span class="post-nav-title">0053 最大子数组和</span>
+        <span class="post-nav-title">0046 全排列</span>
       </a>
     
     
-      <a href="/2026/04/22/LeetCode/0069_x_%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/" class="post-nav-next">
+      <a href="/2026/04/22/LeetCode/0053_%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C/" class="post-nav-next">
         <span class="post-nav-label">下一页 →</span>
-        <span class="post-nav-title">0069 x 的平方根</span>
+        <span class="post-nav-title">0053 最大子数组和</span>
       </a>
     
   </nav>

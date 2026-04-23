@@ -27,15 +27,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<meta name="description" content="动态规划经典题目，重点考察状态定义与转移方程的推导。">
+<meta name="description" content="摘要：动态规划经典题目，重点考察状态定义与转移方程的推导。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0072 编辑距离">
 <meta property="og:url" content="https://404alefound.github.io/2026/04/22/LeetCode/0072_%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/index.html">
 <meta property="og:site_name" content="404AleFound">
-<meta property="og:description" content="动态规划经典题目，重点考察状态定义与转移方程的推导。">
+<meta property="og:description" content="摘要：动态规划经典题目，重点考察状态定义与转移方程的推导。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-22T14:32:00.728Z">
+<meta property="article:modified_time" content="2026-04-23T13:25:24.382Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -91,7 +91,7 @@
         <time class="article-date">2026-04-22</time>
         
           <span class="article-separator">·</span>
-          <span class="article-updated">updated 2026-04-22</span>
+          <span class="article-updated">updated 2026-04-23</span>
         
         
           <span class="article-separator">·</span>
@@ -108,29 +108,26 @@
 
   <div class="article-content">
     
-      <p>动态规划经典题目，重点考察状态定义与转移方程的推导。</p>
+      <p>摘要：动态规划经典题目，重点考察状态定义与转移方程的推导。</p>
 <span id="more"></span>
 
 
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcodecn/problems/edit-distance">0072 编辑距离</a></p>
-</blockquote>
 <div class="markdown-alert markdown-alert-note">
   <p class="markdown-alert-title">
     <svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
     Note
   </p>
-<p><strong>题目</strong></p>
+<p><strong>题目：</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/edit-distance">0072 编辑距离</a></p>
 <p>给你两个单词 <code>word1</code> 和 <code>word2</code>， 请返回将 <code>word1</code> 转换成 <code>word2</code> 所使用的最少操作数。你可以对一个单词进行如下三种操作：</p>
 <ul>
 <li>插入一个字符</li>
 <li>删除一个字符</li>
 <li>替换一个字符</li>
 </ul>
-<p><strong>题解</strong></p>
+<p><strong>题解：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minDistance</span><span class="hljs-params">(string word1, string word2)</span> </span>&#123;<br>    <span class="hljs-type">int</span> n1 = word<span class="hljs-number">1.</span><span class="hljs-built_in">size</span>();<br>    <span class="hljs-type">int</span> n2 = word<span class="hljs-number">2.</span><span class="hljs-built_in">size</span>();<br>    vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">dp</span>(n1 + <span class="hljs-number">1</span>, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-type">int</span>&gt;(n2 + <span class="hljs-number">1</span>, <span class="hljs-number">0</span>));<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= n1; i++) dp[i][<span class="hljs-number">0</span>] = i;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt;= n2; j++) dp[<span class="hljs-number">0</span>][j] = j;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n1; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n2; j++) &#123;<br>            <span class="hljs-keyword">if</span> (word1[i - <span class="hljs-number">1</span>] == word2[j - <span class="hljs-number">1</span>]) &#123;<br>           		dp[i][j] = dp[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>];<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                dp[i][j] = <span class="hljs-built_in">min</span>(&#123;dp[i - <span class="hljs-number">1</span>][j], dp[i][j - <span class="hljs-number">1</span>], dp[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>]&#125;) + <span class="hljs-number">1</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> dp[n1][n2];<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<p><strong>易错点</strong></p>
+<p><strong>易错点：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 返回值的时候不要忘了索引为 n1 和 n2</span><br><span class="hljs-keyword">return</span> dp[n1][n2];<br></code></pre></td></tr></table></figure>
 </div>
 
@@ -144,15 +141,15 @@
 
   <nav class="post-nav">
     
-      <a href="/2026/04/22/LeetCode/0056_%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/" class="post-nav-prev">
+      <a href="/2026/04/22/LeetCode/0070_%E7%88%AC%E6%A5%BC%E6%A2%AF/" class="post-nav-prev">
         <span class="post-nav-label">← 上一页</span>
-        <span class="post-nav-title">0056 合并区间</span>
+        <span class="post-nav-title">0070 爬楼梯</span>
       </a>
     
     
-      <a href="/2026/04/22/LeetCode/0070_%E7%88%AC%E6%A5%BC%E6%A2%AF/" class="post-nav-next">
+      <a href="/2026/04/22/LeetCode/0076_%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2/" class="post-nav-next">
         <span class="post-nav-label">下一页 →</span>
-        <span class="post-nav-title">0070 爬楼梯</span>
+        <span class="post-nav-title">0076 最小覆盖子串</span>
       </a>
     
   </nav>

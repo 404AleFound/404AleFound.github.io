@@ -27,15 +27,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<meta name="description" content="贪心算法题目，每一步选择局部最优以期望达到全局最优解。">
+<meta name="description" content="摘要：贪心算法题目，每一步选择局部最优以期望达到全局最优解。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0056 合并区间">
 <meta property="og:url" content="https://404alefound.github.io/2026/04/22/LeetCode/0056_%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/index.html">
 <meta property="og:site_name" content="404AleFound">
-<meta property="og:description" content="贪心算法题目，每一步选择局部最优以期望达到全局最优解。">
+<meta property="og:description" content="摘要：贪心算法题目，每一步选择局部最优以期望达到全局最优解。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-22T14:32:00.724Z">
+<meta property="article:modified_time" content="2026-04-23T13:25:05.244Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -91,7 +91,7 @@
         <time class="article-date">2026-04-22</time>
         
           <span class="article-separator">·</span>
-          <span class="article-updated">updated 2026-04-22</span>
+          <span class="article-updated">updated 2026-04-23</span>
         
         
           <span class="article-separator">·</span>
@@ -108,22 +108,20 @@
 
   <div class="article-content">
     
-      <p>贪心算法题目，每一步选择局部最优以期望达到全局最优解。</p>
+      <p>摘要：贪心算法题目，每一步选择局部最优以期望达到全局最优解。</p>
 <span id="more"></span>
 
 
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcodecn/problems/merge-intervals">0056 合并区间</a></p>
-</blockquote>
 <div class="markdown-alert markdown-alert-note">
   <p class="markdown-alert-title">
     <svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
     Note
   </p>
-<p><strong>题解</strong></p>
+<p><strong>题目：</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-intervals">0056 合并区间</a></p>
+<p><strong>题解：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp">vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">merge</span>(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; intervals) &#123;<br>    vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; res;<br>    <span class="hljs-keyword">if</span> (intervals.<span class="hljs-built_in">empty</span>()) <span class="hljs-keyword">return</span> res;<br>    <span class="hljs-type">int</span> n = intervals.<span class="hljs-built_in">size</span>();<br>    <br>    <span class="hljs-built_in">sort</span>(intervals.<span class="hljs-built_in">begin</span>(), intervals.<span class="hljs-built_in">end</span>(), <br>         [](<span class="hljs-type">const</span> vector&lt;<span class="hljs-type">int</span>&gt;&amp; a, <span class="hljs-type">const</span> vector&lt;<span class="hljs-type">int</span>&gt;&amp; b) &#123;<span class="hljs-keyword">return</span> a[<span class="hljs-number">0</span>] &lt; b[<span class="hljs-number">0</span>];&#125;);<br>    <br>    res.<span class="hljs-built_in">push_back</span>(intervals[<span class="hljs-number">0</span>]);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (intervals[i][<span class="hljs-number">0</span>] &gt; res.<span class="hljs-built_in">back</span>()[<span class="hljs-number">1</span>]) &#123;<br>            res.<span class="hljs-built_in">push_back</span>(intervals[i]);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            res.<span class="hljs-built_in">back</span>()[<span class="hljs-number">1</span>] = <span class="hljs-built_in">max</span>(res.<span class="hljs-built_in">back</span>()[<span class="hljs-number">1</span>], intervals[i][<span class="hljs-number">1</span>]);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p><strong>易错点</strong></p>
+<p><strong>易错点：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// res.back() 的括号不要遗漏</span><br><br><span class="hljs-comment">// 判断是否相交，即判断下一个区间的左边界和上一个区间的右边界的大小</span><br><br><span class="hljs-comment">// 合并的方式，若两个区间相交，右边界取两个区间的大值。</span><br></code></pre></td></tr></table></figure>
 </div>
 
@@ -143,9 +141,9 @@
       </a>
     
     
-      <a href="/2026/04/22/LeetCode/0072_%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/" class="post-nav-next">
+      <a href="/2026/04/22/LeetCode/0070_%E7%88%AC%E6%A5%BC%E6%A2%AF/" class="post-nav-next">
         <span class="post-nav-label">下一页 →</span>
-        <span class="post-nav-title">0072 编辑距离</span>
+        <span class="post-nav-title">0070 爬楼梯</span>
       </a>
     
   </nav>

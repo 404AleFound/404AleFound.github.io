@@ -27,15 +27,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<meta name="description" content="链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。">
+<meta name="description" content="摘要：链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="00148 排序链表">
 <meta property="og:url" content="https://404alefound.github.io/2026/04/22/LeetCode/00148_%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/index.html">
 <meta property="og:site_name" content="404AleFound">
-<meta property="og:description" content="链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。">
+<meta property="og:description" content="摘要：链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-22T14:32:00.693Z">
+<meta property="article:modified_time" content="2026-04-23T13:25:58.514Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -91,7 +91,7 @@
         <time class="article-date">2026-04-22</time>
         
           <span class="article-separator">·</span>
-          <span class="article-updated">updated 2026-04-22</span>
+          <span class="article-updated">updated 2026-04-23</span>
         
         
           <span class="article-separator">·</span>
@@ -108,22 +108,20 @@
 
   <div class="article-content">
     
-      <p>链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。</p>
+      <p>摘要：链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。</p>
 <span id="more"></span>
 
 
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/sort-list">00148 排序链表</a></p>
-</blockquote>
 <div class="markdown-alert markdown-alert-note">
   <p class="markdown-alert-title">
     <svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
     Note
   </p>
-<p><strong>题解</strong></p>
+<p><strong>题目：</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/sort-list">00148 排序链表</a></p>
+<p><strong>题解：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">ListNode* <span class="hljs-title">getMidNode</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (!head) <span class="hljs-keyword">return</span> head;<br>    ListNode* dummyHead = <span class="hljs-keyword">new</span> <span class="hljs-built_in">ListNode</span>();<br>    dummyHead-&gt;next = head;<br>    ListNode* slow = dummyHead;<br>    ListNode* fast = dummyHead;<br>    <br>    <span class="hljs-keyword">while</span>(fast&amp;&amp; fast-&gt;next) &#123;<br>        slow = slow-&gt;next;<br>        fast = fast-&gt;next-&gt;next;<br>    &#125;<br>	ListNode* midNode = slow-&gt;next;<br>   	slow-&gt;next = <span class="hljs-literal">nullptr</span>;<br>    <span class="hljs-keyword">return</span> midNode;<br>&#125;<br><br><span class="hljs-function">ListNode* <span class="hljs-title">mergeTwoLists</span><span class="hljs-params">(ListNode* h1, ListNode* h2)</span> </span>&#123;<br>    ListNode* dummyHead = <span class="hljs-keyword">new</span> <span class="hljs-built_in">ListNode</span>();<br>    ListNode* curr = dummyHead;<br>    <span class="hljs-keyword">while</span>(h1 &amp;&amp; h2) &#123;<br>        <span class="hljs-keyword">if</span> (h1-&gt;val &lt; h2-&gt;val) &#123;<br>            curr-&gt;next = h1;<br>            h1 = h1-&gt;next;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            curr-&gt;next = h2;<br>            h2 = h2-&gt;next;<br>        &#125;<br>        curr = curr-&gt;next;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (h1) curr-&gt;next = h1;<br>    <span class="hljs-keyword">if</span> (h2) curr-&gt;next = h2;<br>    <span class="hljs-keyword">return</span> dummyHead-&gt;next;<br>&#125;<br><br><span class="hljs-function">ListNode* <span class="hljs-title">sortList</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (!head || !head-&gt;next) <span class="hljs-keyword">return</span> head;<br>    ListNode* mid = <span class="hljs-built_in">getMidNode</span>(head);<br>    ListNode* h1 = <span class="hljs-built_in">sortList</span>(head);<br>    ListNode* h2 = <span class="hljs-built_in">sortList</span>(mid);<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">mergeTwoLists</span>(h1, h2);<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p><strong>易错点</strong></p>
+<p><strong>易错点：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 找到中间节点后需要断开</span><br><span class="hljs-comment">/* YOUR CODE HERE */</span><br>ListNode* midNode = slow-&gt;next;<br>slow-&gt;next = <span class="hljs-literal">nullptr</span>;<br><span class="hljs-keyword">return</span> midNode;<br><br><span class="hljs-comment">// 对于单节点要直接返回</span><br><span class="hljs-function">ListNode* <span class="hljs-title">sortList</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (!head || !head-&gt;next) <span class="hljs-keyword">return</span> head;<br>    <span class="hljs-comment">/* YOUR CODE HERE */</span><br>&#125;<br></code></pre></td></tr></table></figure>
 </div>
 
@@ -137,15 +135,15 @@
 
   <nav class="post-nav">
     
-      <a href="/2026/04/22/LeetCode/00124_%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E5%92%8C/" class="post-nav-prev">
+      <a href="/2026/04/22/LeetCode/0004_%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" class="post-nav-prev">
         <span class="post-nav-label">← 上一页</span>
-        <span class="post-nav-title">00124 二叉树中的最大路径和</span>
+        <span class="post-nav-title">0004 寻找两个正序数组的中位数</span>
       </a>
     
     
-      <a href="/2026/04/22/LeetCode/0015_%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/" class="post-nav-next">
+      <a href="/2026/04/22/LeetCode/00124_%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E5%92%8C/" class="post-nav-next">
         <span class="post-nav-label">下一页 →</span>
-        <span class="post-nav-title">0015 三数之和</span>
+        <span class="post-nav-title">00124 二叉树中的最大路径和</span>
       </a>
     
   </nav>

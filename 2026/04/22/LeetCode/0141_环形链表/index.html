@@ -27,15 +27,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<meta name="description" content="链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。">
+<meta name="description" content="摘要：链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0141 环形链表">
 <meta property="og:url" content="https://404alefound.github.io/2026/04/22/LeetCode/0141_%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/index.html">
 <meta property="og:site_name" content="404AleFound">
-<meta property="og:description" content="链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。">
+<meta property="og:description" content="摘要：链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-22T14:32:00.742Z">
+<meta property="article:modified_time" content="2026-04-23T13:25:50.842Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -91,7 +91,7 @@
         <time class="article-date">2026-04-22</time>
         
           <span class="article-separator">·</span>
-          <span class="article-updated">updated 2026-04-22</span>
+          <span class="article-updated">updated 2026-04-23</span>
         
         
           <span class="article-separator">·</span>
@@ -108,22 +108,20 @@
 
   <div class="article-content">
     
-      <p>链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。</p>
+      <p>摘要：链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。</p>
 <span id="more"></span>
 
 
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcodecn/problems/linked-list-cycle">0141 环形链表</a></p>
-</blockquote>
 <div class="markdown-alert markdown-alert-note">
   <p class="markdown-alert-title">
     <svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
     Note
   </p>
-<p><strong>题解</strong></p>
+<p><strong>题目：</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/linked-list-cycle">0141 环形链表</a></p>
+<p><strong>题解：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">hasCycle</span><span class="hljs-params">(ListNode *head)</span> </span>&#123;<br>    ListNode* slow = head;<br>    ListNode* fast = head;<br>    <span class="hljs-keyword">while</span> (fast &amp;&amp; fast-&gt;next) &#123;<br>        slow = slow-&gt;next;<br>        fast = fast-&gt;next-&gt;next;<br>        <span class="hljs-keyword">if</span> (slow == fast) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p><strong>易错点</strong></p>
+<p><strong>易错点：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 暂无</span><br></code></pre></td></tr></table></figure>
 </div>
 
@@ -137,15 +135,15 @@
 
   <nav class="post-nav">
     
-      <a href="/2026/04/22/LeetCode/0103_%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%94%AF%E9%BD%BF%E5%BD%A2%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86/" class="post-nav-prev">
+      <a href="/2026/04/22/LeetCode/0142_%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8_II/" class="post-nav-prev">
         <span class="post-nav-label">← 上一页</span>
-        <span class="post-nav-title">0103 二叉树的锯齿形层次遍历</span>
+        <span class="post-nav-title">0142 环形链表 II</span>
       </a>
     
     
-      <a href="/2026/04/22/LeetCode/0121_%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/" class="post-nav-next">
+      <a href="/2026/04/22/LeetCode/0143_%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8/" class="post-nav-next">
         <span class="post-nav-label">下一页 →</span>
-        <span class="post-nav-title">0121 买卖股票的最佳时机</span>
+        <span class="post-nav-title">0143 重排链表</span>
       </a>
     
   </nav>

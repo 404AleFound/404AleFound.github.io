@@ -27,15 +27,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<meta name="description" content="二叉树相关题目，涉及递归遍历、层序遍历或树形结构的常见操作。">
+<meta name="description" content="摘要：二叉树相关题目，涉及递归遍历、层序遍历或树形结构的常见操作。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0103 二叉树的锯齿形层次遍历">
 <meta property="og:url" content="https://404alefound.github.io/2026/04/22/LeetCode/0103_%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%94%AF%E9%BD%BF%E5%BD%A2%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86/index.html">
 <meta property="og:site_name" content="404AleFound">
-<meta property="og:description" content="二叉树相关题目，涉及递归遍历、层序遍历或树形结构的常见操作。">
+<meta property="og:description" content="摘要：二叉树相关题目，涉及递归遍历、层序遍历或树形结构的常见操作。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-22T14:32:00.739Z">
+<meta property="article:modified_time" content="2026-04-23T13:25:43.632Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -91,7 +91,7 @@
         <time class="article-date">2026-04-22</time>
         
           <span class="article-separator">·</span>
-          <span class="article-updated">updated 2026-04-22</span>
+          <span class="article-updated">updated 2026-04-23</span>
         
         
           <span class="article-separator">·</span>
@@ -108,22 +108,20 @@
 
   <div class="article-content">
     
-      <p>二叉树相关题目，涉及递归遍历、层序遍历或树形结构的常见操作。</p>
+      <p>摘要：二叉树相关题目，涉及递归遍历、层序遍历或树形结构的常见操作。</p>
 <span id="more"></span>
 
 
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcodecn/problems/binary-tree-zigzag-level-order-traversal">0103 二叉树的锯齿形层次遍历</a></p>
-</blockquote>
 <div class="markdown-alert markdown-alert-note">
   <p class="markdown-alert-title">
     <svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
     Note
   </p>
-<p><strong>题解</strong></p>
+<p><strong>题目：</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal">0103 二叉树的锯齿形层次遍历</a></p>
+<p><strong>题解：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp">vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">zigzagLevelOrder</span>(TreeNode* root) &#123;<br>    queue&lt;TreeNode*&gt; que;<br>    vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; res;<br>    <span class="hljs-keyword">if</span> (!root) <span class="hljs-keyword">return</span> res;<br>    que.<span class="hljs-built_in">push</span>(root);<br>    <span class="hljs-keyword">while</span> (!que.<span class="hljs-built_in">empty</span>()) &#123;<br>        <span class="hljs-type">int</span> size = que.<span class="hljs-built_in">size</span>();<br>        vector&lt;<span class="hljs-type">int</span>&gt; layer;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; size; i++) &#123;<br>            TreeNode* node = que.<span class="hljs-built_in">front</span>();<br>            que.<span class="hljs-built_in">pop</span>();<br>            layer.<span class="hljs-built_in">push_back</span>(node-&gt;val);<br>            <span class="hljs-keyword">if</span> (node-&gt;left) que.<span class="hljs-built_in">push</span>(node-&gt;left);<br>            <span class="hljs-keyword">if</span> (node-&gt;right) que.<span class="hljs-built_in">push</span>(node-&gt;right);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (res.<span class="hljs-built_in">size</span>() % <span class="hljs-number">2</span> != <span class="hljs-number">0</span>) <span class="hljs-built_in">reverse</span>(layer.<span class="hljs-built_in">begin</span>(), layer.<span class="hljs-built_in">end</span>());<br>        res.<span class="hljs-built_in">push_back</span>(layer);<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<p><strong>易错点</strong></p>
+<p><strong>易错点：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 在压入 root 指针之前需要先判断其是否为空</span><br><span class="hljs-keyword">if</span> (!root) <span class="hljs-keyword">return</span> res;<br>que.<span class="hljs-built_in">push</span>(root);<br></code></pre></td></tr></table></figure>
 </div>
 
@@ -137,15 +135,15 @@
 
   <nav class="post-nav">
     
-      <a href="/2026/04/22/LeetCode/0105_%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/" class="post-nav-prev">
+      <a href="/2026/04/22/LeetCode/0094_%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/" class="post-nav-prev">
         <span class="post-nav-label">← 上一页</span>
-        <span class="post-nav-title">0105 从前序与中序遍历序列构造二叉树</span>
+        <span class="post-nav-title">0094 二叉树的中序遍历</span>
       </a>
     
     
-      <a href="/2026/04/22/LeetCode/0141_%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/" class="post-nav-next">
+      <a href="/2026/04/22/LeetCode/0105_%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/" class="post-nav-next">
         <span class="post-nav-label">下一页 →</span>
-        <span class="post-nav-title">0141 环形链表</span>
+        <span class="post-nav-title">0105 从前序与中序遍历序列构造二叉树</span>
       </a>
     
   </nav>
