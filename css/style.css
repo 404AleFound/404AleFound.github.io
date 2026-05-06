@@ -913,7 +913,10 @@ img {
   text-align: left;
   border-spacing: 6px;
   margin: 1em auto;
-  width: auto;
+  width: 100%;
+  table-layout: auto;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .article-content table td {

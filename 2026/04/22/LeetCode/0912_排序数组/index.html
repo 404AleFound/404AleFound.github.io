@@ -35,7 +35,7 @@
 <meta property="og:description" content="摘要：数组处理技巧题目，考察排序、二分查找或数组元素的巧妙操作。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-23T13:26:29.762Z">
+<meta property="article:modified_time" content="2026-05-06T02:50:53.629Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -91,7 +91,7 @@
         <time class="article-date">2026-04-22</time>
         
           <span class="article-separator">·</span>
-          <span class="article-updated">updated 2026-04-23</span>
+          <span class="article-updated">updated 2026-05-06</span>
         
         
           <span class="article-separator">·</span>
@@ -118,8 +118,155 @@
     Note
   </p>
 <p><strong>题目：</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/sort-an-array">0912 排序数组</a></p>
-<p><strong>题解：快速排序</strong></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">quickSort</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (l &gt;= r) <span class="hljs-keyword">return</span>;<br>    <span class="hljs-type">int</span> i = l - <span class="hljs-number">1</span>;<br>    <span class="hljs-type">int</span> j = r + <span class="hljs-number">1</span>;<br>    <span class="hljs-type">int</span> x = nums[l];<br>    <span class="hljs-keyword">while</span> (i &lt; j) &#123;<br>        <span class="hljs-keyword">do</span> i++; <span class="hljs-keyword">while</span> (nums[i] &lt; x);<br>        <span class="hljs-keyword">do</span> j--; <span class="hljs-keyword">while</span> (nums[j] &gt; x);<br>        <span class="hljs-keyword">if</span> (i &lt; j) <span class="hljs-built_in">swap</span>(nums[i], nums[j]);<br>    &#125;<br>    <span class="hljs-built_in">quickSort</span>(nums, l, j);<br>    <span class="hljs-built_in">quickSort</span>(nums, j + <span class="hljs-number">1</span>, r);<br>&#125;<br><br><span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">sortArray</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>    <span class="hljs-built_in">quickSort</span>(nums, <span class="hljs-number">0</span>, <span class="hljs-built_in">numssize</span>() - <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">return</span> nums;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>给你一个整数数组 <code>nums</code>，请你将该数组升序排列。你必须在不使用任何内置函数的情况下解决问题，时间复杂度为 <code>O(nlog(n))</code>，并且空间复杂度尽可能小。</p>
+<p><strong>题解：</strong><code>排序</code></p>
+<p>该题可以使用常见的排序算法解决，常见的排序算法有：插入排序、希尔排序、选择排序、冒泡排序、归并排序、快速排序、堆排序、基数排序等，基本概念如下：</p>
+<ul>
+<li><strong>时间复杂度：</strong> 算法执行所需的时间，通常用大 O 表示法描述最坏&#x2F;最好&#x2F;平均情况下的比较或移动次数。</li>
+<li><strong>空间复杂度：</strong> 不含输入数据本身占用的空间，算法执行所需的额外辅助空间。</li>
+<li><strong>稳定性：</strong> 大小相同的元素，若排序前后相对位置不变，则称该方法<strong>稳定</strong>；反之，则称该方法<strong>不稳定</strong>。稳定性只在有多个排序关键字时才有意义。</li>
+</ul>
+<p><code>1 冒泡排序 Bubble Sort</code></p>
+<p><strong>核心思想：</strong> 通过相邻元素的比较和交换，让较大的元素逐渐 “浮” 到数组末端。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bubbleSort</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++) &#123;<br>            <span class="hljs-type">bool</span> swapped = <span class="hljs-literal">false</span>;              <span class="hljs-comment">// 优化：若本轮无交换则已有序，可提前终止</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; nums.<span class="hljs-built_in">size</span>() - i - <span class="hljs-number">1</span>; j++) &#123;<br>                <span class="hljs-keyword">if</span> (nums[j] &gt; nums[j + <span class="hljs-number">1</span>]) &#123;<br>                    <span class="hljs-built_in">swap</span>(nums[j], nums[j + <span class="hljs-number">1</span>]);<br>                    swapped = <span class="hljs-literal">true</span>;<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (!swapped) <span class="hljs-keyword">break</span>;<br>        &#125;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>时间复杂度：当待排序数组有序时，加标志位优化只需要一轮比较，时间复杂度 <code>O(n)</code>；当待排序数组完全逆序时，每轮都需要完整比较交换，时间复杂度 <code>O(n^2)</code> ；平均时间复杂度为 <code>O(n^2)</code>。</li>
+<li>空间复杂度：原地排序，仅需常数个临时变量。</li>
+<li>稳定性：稳定，相邻比较，相等时不交换。</li>
+</ul>
+<p><code>2 选择排序 Selection Sort</code></p>
+<p><strong>核心思想：</strong> 每次从未排序部分选出最小（或最大）元素，放到已排序部分的末尾。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">selectionSort</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++) &#123;<br>            <span class="hljs-type">int</span> min = i;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i + <span class="hljs-number">1</span>; j &lt; nums.<span class="hljs-built_in">size</span>(); j++) &#123;<br>                <span class="hljs-keyword">if</span> (nums[j] &lt; nums[min]) min = j;<br>            &#125;<br>            <span class="hljs-built_in">swap</span>(nums[min], nums[i]);<br>        &#125;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>时间复杂度：无论如何都要遍历所有剩余元素找最小值，因此时间复杂度总是为 <code>O(n^2)</code>。</li>
+<li>空间复杂度：<code>O(1)</code>，原地排序，仅需常数个临时变量。</li>
+<li>稳定性：不稳定，交换操作可能破坏相等元素的相对顺序。例如，对于数组 <code>[5, 5, 1]</code>，第一轮找到最小值 <code>1</code> 与第一个 <code>5</code> 交换，得到 <code>[1, 5, 5]</code>，两个 <code>5</code> 的相对顺序被交换破坏。</li>
+</ul>
+<p><code>3 插入排序 Insertion Sort</code></p>
+<p><strong>核心思想：</strong> 将未排序元素逐个插入到已排序序列的合适位置。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insertionSort</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++) &#123;<br>            <span class="hljs-type">int</span> key = nums[i];<br>            <span class="hljs-type">int</span> j = i - <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">while</span> (j &gt;= <span class="hljs-number">0</span> &amp;&amp; nums[j] &gt; key) &#123;<br>                nums[j + <span class="hljs-number">1</span>] = nums[j];<br>                j--;<br>            &#125;<br>            nums[j + <span class="hljs-number">1</span>] = key;<br>        &#125;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>时间复杂度：最好时间复杂度，当已有序时，每个元素只需要比较一次，<code>O(n)</code>；最坏时间复杂度，当完全逆序，每个元素都要移动到最前面，<code>O(n^2)</code>；平均时间复杂度，<code>O(n^2)</code>。</li>
+<li>空间复杂度：<code>O(1)</code>，原地排序，仅需 <code>key</code> 临时变量。</li>
+<li>稳定性：稳定，从后往前比较，相等时停止（不越过相等元素）</li>
+</ul>
+<p><code>4 希尔排序 Shell Sort</code></p>
+<p><strong>核心思想：</strong> 通过较大间隔的插入排序使数组”大致有序”，再逐步缩小间隔，直至间隔为 1 完成最终排序。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">shellSort</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> gap = n / <span class="hljs-number">2</span>; gap &gt; <span class="hljs-number">0</span>; gap /= <span class="hljs-number">2</span>) &#123;       <span class="hljs-comment">// 增量序列（可优化）</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = gap; i &lt; n; i++) &#123;               <span class="hljs-comment">// 对每个分组进行插入排序</span><br>                <span class="hljs-type">int</span> key = nums[i];<br>                <span class="hljs-type">int</span> j = i;<br>                <span class="hljs-keyword">while</span> (j &gt;= gap &amp;&amp; nums[j - gap] &gt; key) &#123;<br>                    nums[j] = nums[j - gap];<br>                    j -= gap;<br>                &#125;<br>                nums[j] = key;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>时间复杂度：最好时间复杂度，取决于增量序列，<code>O(nlogn)</code>；最坏时间复杂度，<code>O(n^2)</code>；平均时间复杂度，<code>O(nlogn) ~ O(n^2)</code>。</li>
+<li>空间复杂度：<code>O(1)</code>，原地排序。</li>
+<li>稳定性：不稳定，分组插入排序可能打乱相等元素的相对顺序。</li>
+</ul>
+<p><code>5 归并排序 Merge Sort</code></p>
+<p><strong>核心思想：</strong> 分治思想，将序列递归地分成两半分别排序，再将两个有序子序列合并成一个。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">mergeSort</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, vector&lt;<span class="hljs-type">int</span>&gt;&amp; tmp)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (l &gt;= r) <span class="hljs-keyword">return</span>;<br>        <span class="hljs-type">int</span> mid = l + (r - l) / <span class="hljs-number">2</span>;<br>        <span class="hljs-built_in">mergeSort</span>(nums, l, mid, tmp);<br>        <span class="hljs-built_in">mergeSort</span>(nums, mid + <span class="hljs-number">1</span>, r, tmp);<br><br>        <span class="hljs-comment">// 合并两个有序区间 [l, mid] 和 [mid+1, r]</span><br>        <span class="hljs-type">int</span> i = l, j = mid + <span class="hljs-number">1</span>, k = l;<br>        <span class="hljs-keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= r) &#123;<br>            <span class="hljs-keyword">if</span> (nums[i] &lt;= nums[j]) tmp[k++] = nums[i++];<br>            <span class="hljs-keyword">else</span> tmp[k++] = nums[j++];<br>        &#125;<br>        <span class="hljs-keyword">while</span> (i &lt;= mid) tmp[k++] = nums[i++];<br>        <span class="hljs-keyword">while</span> (j &lt;= r)   tmp[k++] = nums[j++];<br>        <span class="hljs-keyword">for</span> (i = l; i &lt;= r; i++) nums[i] = tmp[i];<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">sortArray</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">tmp</span><span class="hljs-params">(nums.size())</span></span>;<br>        <span class="hljs-built_in">mergeSort</span>(nums, <span class="hljs-number">0</span>, nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>, tmp);<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>时间复杂度：最好时间复杂度，总是将序列对半分割，<code>O(nlogn)</code>；最坏时间复杂度，与初始顺序无关，<code>O(nlogn)</code>；平均时间复杂度，<code>O(nlogn)</code>。</li>
+<li>空间复杂度：<code>O(n)</code>，需要与原始数组等长的辅助数组。</li>
+<li>稳定性：稳定，合并时相等元素优先取左半部分</li>
+</ul>
+<p><code>6 快速排序 Quick Sort</code></p>
+<p><strong>核心思想：</strong> 通过基准元素将数组划分为左右部分，左边小于基准、右边大于基准，再递归处理左右子区间。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">quickSort</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (l &gt;= r) <span class="hljs-keyword">return</span>;<br>        <span class="hljs-type">int</span> i = l - <span class="hljs-number">1</span>, j = r + <span class="hljs-number">1</span>;<br>        <span class="hljs-type">int</span> x = nums[l + (r - l) / <span class="hljs-number">2</span>];      <span class="hljs-comment">// 取中点作为基准，避免极端退化</span><br>        <span class="hljs-keyword">while</span> (i &lt; j) &#123;<br>            <span class="hljs-keyword">do</span> i++; <span class="hljs-keyword">while</span> (nums[i] &lt; x);<br>            <span class="hljs-keyword">do</span> j--; <span class="hljs-keyword">while</span> (nums[j] &gt; x);<br>            <span class="hljs-keyword">if</span> (i &lt; j) <span class="hljs-built_in">swap</span>(nums[i], nums[j]);<br>        &#125;<br>        <span class="hljs-built_in">quickSort</span>(nums, l, j);<br>        <span class="hljs-built_in">quickSort</span>(nums, j + <span class="hljs-number">1</span>, r);<br>    &#125;<br><br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">sortArray</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-built_in">quickSort</span>(nums, <span class="hljs-number">0</span>, nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> nums;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>时间复杂度：最好时间复杂度，每次划分均匀，递归深度不变，<code>O(nlogn)</code>；最坏时间复杂度，每次基准都是极值，<code>O(n^2)</code>；平均时间复杂度，<code>O(nlogn)</code>。</li>
+<li>空间复杂度：<code>O(logn)</code>，递归栈空间的平均深度。</li>
+<li>稳定性：不稳定，分区时的交换可能破坏相等元素顺序。</li>
+</ul>
+<p><code>7 堆排序 Heap Sort</code></p>
+<p><strong>核心思想：</strong> 利用最大堆（或最小堆）数据结构，通过不断取出堆顶元素完成排序。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">downAdjust</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> i, <span class="hljs-type">int</span> n)</span> </span>&#123;<br>        <span class="hljs-type">int</span> largest = i;<br>        <span class="hljs-type">int</span> left = <span class="hljs-number">2</span> * i + <span class="hljs-number">1</span>, right = <span class="hljs-number">2</span> * i + <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (left &lt; n &amp;&amp; nums[left] &gt; nums[largest]) largest = left;<br>        <span class="hljs-keyword">if</span> (right &lt; n &amp;&amp; nums[right] &gt; nums[largest]) largest = right;<br>        <span class="hljs-keyword">if</span> (largest != i) &#123;<br>            <span class="hljs-built_in">swap</span>(nums[i], nums[largest]);<br>            <span class="hljs-built_in">downAdjust</span>(nums, largest, n);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">heapSort</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-comment">// 建堆：从最后一个非叶节点开始向下调整</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n / <span class="hljs-number">2</span> - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>            <span class="hljs-built_in">downAdjust</span>(nums, i, n);<br>        &#125;<br>        <span class="hljs-comment">// 排序：依次将堆顶（最大值）交换到末尾，并缩小堆范围</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n - <span class="hljs-number">1</span>; i &gt; <span class="hljs-number">0</span>; i--) &#123;<br>            <span class="hljs-built_in">swap</span>(nums[<span class="hljs-number">0</span>], nums[i]);<br>            <span class="hljs-built_in">downAdjust</span>(nums, <span class="hljs-number">0</span>, i);<br>        &#125;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>时间复杂度：最好时间复杂度，建堆 <code>O(n)</code>，每次调整 <code>O(logn)</code>，总时间复杂度 <code>O(nlogn)</code>；最坏时间复杂度，与初始顺序无关，<code>O(logn)</code>；平均时间复杂度，<code>O(nlogn)</code>。</li>
+<li>空间复杂度：<code>O(1)</code>，原地排序，无需额外空间。</li>
+<li>稳定性：不稳定，堆调整时可能破坏相等元素的相对顺序。</li>
+</ul>
+<p><code>总结</code></p>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>核心思想</th>
+<th>平均时间复杂度</th>
+<th>最坏时间复杂度</th>
+<th>空间复杂度</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>冒泡排序</td>
+<td>相邻比较交换，大元素”浮”到末尾</td>
+<td>O(n²)</td>
+<td>O(n²)</td>
+<td>O(1)</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>选择排序</td>
+<td>每轮选最小，放已排序末尾</td>
+<td>O(n²)</td>
+<td>O(n²)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>插入排序</td>
+<td>将元素插入到已排序序列的合适位置</td>
+<td>O(n²)</td>
+<td>O(n²)</td>
+<td>O(1)</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>希尔排序</td>
+<td>分组插入排序，逐步缩小间隔</td>
+<td>O(n log n) ~ O(n²)</td>
+<td>O(n²)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>归并排序</td>
+<td>分治：分到最小，两两合并</td>
+<td>O(n log n)</td>
+<td>O(n log n)</td>
+<td>O(n)</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>选基准分区，递归处理左右</td>
+<td>O(n log n)</td>
+<td>O(n²)</td>
+<td>O(log n)</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td>利用堆结构，取堆顶完成排序</td>
+<td>O(n log n)</td>
+<td>O(n log n)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+</tr>
+</tbody></table>
+<p><code>选型建议</code></p>
+<ul>
+<li>数据量小（n &lt; 1000）且基本有序：<strong>插入排序</strong></li>
+<li>数据量中等且要求稳定：<strong>归并排序</strong></li>
+<li>数据量大且不要求稳定：<strong>快速排序</strong>（实际最快）或 <strong>堆排序</strong>（无最坏退化风险）</li>
+<li>数据量极大需外存辅助：<strong>归并排序</strong>（多路归并）</li>
+<li>需要原地且最坏有保证：<strong>堆排序</strong></li>
+</ul>
+<p><code>代码文件</code></p>
 
 </div>
 
@@ -133,16 +280,11 @@
 
   <nav class="post-nav">
     
-      <a href="/2026/04/22/LeetCode/0415_%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/" class="post-nav-prev">
+      <a href="/2026/04/22/LeetCode/0215_%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E7%AC%ACK%E4%B8%AA%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0/" class="post-nav-prev">
         <span class="post-nav-label">← 上一页</span>
-        <span class="post-nav-title">0415 字符串相加</span>
+        <span class="post-nav-title">0215 数组中的第K个最大元素</span>
       </a>
     
-    
-      <a href="/2026/04/22/LeetCode/0704_%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="post-nav-next">
-        <span class="post-nav-label">下一页 →</span>
-        <span class="post-nav-title">0704 二分查找</span>
-      </a>
     
   </nav>
 
