@@ -31,7 +31,7 @@
 
   // TOC scroll highlight
   var tocLinks = document.querySelectorAll('.toc-content a');
-  var headings = document.querySelectorAll('.article-content h2, .article-content h3');
+  var headings = document.querySelectorAll('.article-content h1, .article-content h2, .article-content h3');
 
   if (tocLinks.length && headings.length) {
     function updateActiveToc() {
