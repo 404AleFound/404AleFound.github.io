@@ -7,7 +7,7 @@
 
 <title>
   
-    0206 反转链表 | 404AleFound
+    0001 两数之和 | 404AleFound
   
 </title>
 
@@ -27,15 +27,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<meta name="description" content="摘要：链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。">
+<meta name="description" content="摘要：哈希表一次遍历，边查找补数边记录元素索引，时间复杂度 O(n)，空间复杂度 O(n)。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="0206 反转链表">
-<meta property="og:url" content="https://404alefound.github.io/2026/04/22/LeetCode/0206_%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/index.html">
+<meta property="og:title" content="0001 两数之和">
+<meta property="og:url" content="https://404alefound.github.io/2026/05/10/leetcode/0001-two-sum/index.html">
 <meta property="og:site_name" content="404AleFound">
-<meta property="og:description" content="摘要：链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。">
+<meta property="og:description" content="摘要：哈希表一次遍历，边查找补数边记录元素索引，时间复杂度 O(n)，空间复杂度 O(n)。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-04-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-06T02:50:47.030Z">
+<meta property="article:published_time" content="2026-05-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-10T14:29:13.448Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -86,19 +86,19 @@
             <article class="article">
   
     <header class="article-header article-header-full">
-      <h1 class="article-title">0206 反转链表</h1>
+      <h1 class="article-title">0001 两数之和</h1>
       <div class="article-meta">
-        <time class="article-date">2026-04-22</time>
+        <time class="article-date">2026-05-10</time>
         
           <span class="article-separator">·</span>
-          <span class="article-updated">updated 2026-05-06</span>
+          <span class="article-updated">updated 2026-05-10</span>
         
         
           <span class="article-separator">·</span>
           <span class="article-category">
             
               
-              <a href="/categories/LeetCode/">LeetCode</a>
+              <a href="/categories/leetcode/">leetcode</a>
             
           </span>
         
@@ -108,7 +108,7 @@
 
   <div class="article-content">
     
-      <p>摘要：链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。</p>
+      <p>摘要：哈希表一次遍历，边查找补数边记录元素索引，时间复杂度 <code>O(n)</code>，空间复杂度 <code>O(n)</code>。</p>
 <span id="more"></span>
 
 
@@ -117,19 +117,18 @@
     <svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
     Note
   </p>
-<p><strong>题目：</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-linked-list/description/">0206 反转链表</a></p>
-<p>给你单链表的头节点 <code>head</code> ，请你反转链表，并返回反转后的链表。</p>
-<p><strong>题解：</strong><code>链表操作</code></p>
-<p>该题为链表最常见的操作之一，需要创建三个指针：</p>
+<p><strong>题目：</strong><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/two-sum/">0001 两数之和</a></p>
+<p>给定一个整数数组 <code>nums</code> 和一个整数目标值 <code>target</code>，请你在该数组中找出和为目标值 <code>target</code> 的那两个整数，并返回它们的数组下标。你可以假设每种输入只会对应一个答案，并且你不能使用两次相同的元素。你可以按任意顺序返回答案。</p>
+<p><strong>题解</strong>：<code>Hash</code></p>
+<p>一次遍历，遍历的时候同时查找 <code>target - nums[i]</code> 并记录当前的 <code>nums[i]</code>，逻辑如下：</p>
 <ul>
-<li><code>prev</code> 指针：前置指针，用于为 <code>curr</code> 指针反转指向的对象。</li>
-<li><code>curr</code> 指针：当前指针，用于反转当前指针指向。</li>
-<li><code>next</code> 指针：是临时指针，用于存储 <code>curr</code> 下一个跳转的位置。</li>
+<li>如果找到 <code>target - nums[i]</code>：读取 hash 表中存储索引，并返回对应的索引对。</li>
+<li>如果没找到 <code>target - nums[i]</code>：记录当前的 <code>nums[i]</code>，继续遍历。</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode* <span class="hljs-title">reverseList</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;<br>        ListNode* prev = <span class="hljs-literal">nullptr</span>;<br>        ListNode* curr = head;<br>        <span class="hljs-keyword">while</span> (curr) &#123;<br>            ListNode* next = curr-&gt;next;<br>            curr-&gt;next = prev;<br>            prev = curr;<br>            curr = next;<br>            &#125;<br>        <span class="hljs-keyword">return</span> prev;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">twoSum</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> target)</span> </span>&#123;<br>unordered_map&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; ump;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++) &#123;<br>   <span class="hljs-keyword">if</span> (ump.<span class="hljs-built_in">find</span>(target - nums[i]) == ump.<span class="hljs-built_in">end</span>()) &#123;<br>       ump[nums[i]] = i;<br>   &#125; <span class="hljs-keyword">else</span> &#123;<br>       <span class="hljs-keyword">return</span> &#123;i, ump[target - nums[i]]&#125;;<br>   &#125;<br>&#125;<br><span class="hljs-keyword">return</span> &#123;&#125;;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p><strong>易错点：</strong></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 暂无</span><br></code></pre></td></tr></table></figure>
+<p><strong>易错点</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp">unordered_map&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; ump;<br><span class="hljs-comment">// 该 hash 表的键为当前元素的值，hash 表的值为当前元素的索引</span><br></code></pre></td></tr></table></figure>
 </div>
 
     
@@ -142,15 +141,10 @@
 
   <nav class="post-nav">
     
-      <a href="/2026/04/22/LeetCode/0215_%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E7%AC%ACK%E4%B8%AA%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0/" class="post-nav-prev">
-        <span class="post-nav-label">← 上一页</span>
-        <span class="post-nav-title">0215 数组中的第K个最大元素</span>
-      </a>
     
-    
-      <a href="/2026/04/22/LeetCode/0912_%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/" class="post-nav-next">
+      <a href="/2026/05/10/leetcode/0002-add-two-numbers/" class="post-nav-next">
         <span class="post-nav-label">下一页 →</span>
-        <span class="post-nav-title">0912 排序数组</span>
+        <span class="post-nav-title">0002 两数相加</span>
       </a>
     
   </nav>
