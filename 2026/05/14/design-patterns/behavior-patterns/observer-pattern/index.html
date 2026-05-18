@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>
+  
+    Observer Pattern | 404AleFound
+  
+</title>
+
+
+
+
+
+<meta name="author" content="John Doe">
+
+
+  <link rel="shortcut icon" href="/favicon.svg">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<meta name="description" content="Note   Observer is a behavior pattern design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Observer Pattern">
+<meta property="og:url" content="https://404alefound.github.io/2026/05/14/design-patterns/behavior-patterns/observer-pattern/index.html">
+<meta property="og:site_name" content="404AleFound">
+<meta property="og:description" content="Note   Observer is a behavior pattern design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://404alefound.github.io/2026/05/14/design-patterns/behavior-patterns/observer-pattern/observer-pattern-background-comparison.png">
+<meta property="og:image" content="https://404alefound.github.io/2026/05/14/design-patterns/behavior-patterns/observer-pattern/publisher-subscriber-mechanism-diagram.png">
+<meta property="og:image" content="https://404alefound.github.io/2026/05/14/design-patterns/behavior-patterns/observer-pattern/editor-observer-event-manager-example.png">
+<meta property="article:published_time" content="2026-05-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-18T16:19:49.122Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="design-patterns">
+<meta property="article:tag" content="behavior-pattern">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://404alefound.github.io/2026/05/14/design-patterns/behavior-patterns/observer-pattern/observer-pattern-background-comparison.png">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-title">404AleFound</a>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-list">
+        
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">Home</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories" class="nav-link">Categories</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archives" class="nav-link">Archives</a>
+            </li>
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="site-wrapper">
+    
+    <main class="site-main has-toc">
+      
+        <div class="main-content main-with-toc">
+          
+            
+  <aside class="toc-sidebar">
+    <div class="toc-inner">
+      <p class="toc-title">目录</p>
+      <div class="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Background"><span class="toc-text">1 Background</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Solution-Observer-Pattern"><span class="toc-text">2 Solution: Observer Pattern</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Implement"><span class="toc-text">3 Implement</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Example"><span class="toc-text">3 Example</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Analysis"><span class="toc-text">4 Analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-Reference"><span class="toc-text">5 Reference</span></a></li></ol>
+      </div>
+    </div>
+  </aside>
+
+
+          
+          <div class="content-area">
+            <article class="article">
+  
+    <header class="article-header article-header-full">
+      <h1 class="article-title">Observer Pattern</h1>
+      <div class="article-meta">
+        <time class="article-date">2026-05-14</time>
+        
+          <span class="article-separator">·</span>
+          <span class="article-updated">updated 2026-05-19</span>
+        
+        
+          <span class="article-separator">·</span>
+          <span class="article-category">
+            
+              
+              <a href="/categories/design-patterns/">design-patterns</a>
+            
+              , 
+              <a href="/categories/design-patterns/behavior-patterns/">behavior-patterns</a>
+            
+          </span>
+        
+      </div>
+    </header>
+  
+
+  <div class="article-content">
+    
+      <div class="markdown-alert markdown-alert-note">
+  <p class="markdown-alert-title">
+    <svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
+    Note
+  </p>Observer is a behavior pattern design pattern that lets you define <strong>a subscription mechanism</strong> to notify <strong>multiple objects</strong> about any <strong>events</strong> that happen to the object they’re observing.</p>
+
+</div>
+<h1 id="1-Background"><a href="#1-Background" class="headerlink" title="1 Background"></a>1 Background</h1><img src="/2026/05/14/design-patterns/behavior-patterns/observer-pattern/observer-pattern-background-comparison.png" class="" title="visiting-the-store-vs-sending-spam">
+
+<p>Imagine that you have two types of objects: a <code>Customer</code> and a <code>Store</code>. The customer is very interested in a particular brand of product which should become available in the store very soon.</p>
+<p>To solve the problem, here are the two solutions:</p>
+<ul>
+<li>Sol1: The <strong>customer</strong> could visit the store every day and check product availability.</li>
+<li>Sol2: The <strong>store</strong> could send tons of emails to all customers each time a new product becomes available.</li>
+</ul>
+<p>For solution 1, the <strong>customer</strong> will waste time checking product availability. While for solution 2, the <strong>store</strong> will waste resources notifying the <strong>wrong</strong> customers.</p>
+<p>Observer pattern can help to solve the conflict.</p>
+<h1 id="2-Solution-Observer-Pattern"><a href="#2-Solution-Observer-Pattern" class="headerlink" title="2 Solution: Observer Pattern"></a>2 Solution: Observer Pattern</h1><p>Before, some concepts should be defined. The object that has some interesting state, such as <code>Store</code>, is often called <strong>subject</strong> or <strong>publisher</strong>, since it also need to notify other objects. All other objects that want to track changes to the publisher’s state are called <strong>subscribers</strong>.</p>
+<p>The subject or publisher always need <strong>a subscription mechanism</strong>, shown below:</p>
+<ul>
+<li>An array field for storing a list of references to subscriber objects.</li>
+<li>Several public methods which allow adding subscribers to and removing them from that list.</li>
+</ul>
+<p> Now, whenever an important event happens to the publisher, it <strong>goes over its subscribers</strong> and calls the specific notification method on their objects.</p>
+<img src="/2026/05/14/design-patterns/behavior-patterns/observer-pattern/publisher-subscriber-mechanism-diagram.png" class="" title="**a subscription mechanism**">
+
+<p>However, in real apps development, there may be dozens of different subscriber classes. So it’s crucial that all subscribers implement <strong>the same interface</strong> and that the publisher communicates with them only via that interface.</p>
+<p>To make all publishers follow the same interface, all the concrete subscriber classes should inherit from the same interface.</p>
+<h1 id="3-Implement"><a href="#3-Implement" class="headerlink" title="3 Implement"></a>3 Implement</h1><ul>
+<li><strong>STEP 1</strong>: <strong>Split</strong> business logic into a publisher (core functionality) and subscribers (reactive logic)</li>
+<li><strong>STEP 2</strong>: Declare a <strong>subscriber</strong> interface with at least one update method.</li>
+<li><strong>STEP 3</strong>: Declare a <strong>publisher</strong> interface with subscribe &#x2F; unsubscribe methods — publishers interact with subscribers only through the subscriber interface.</li>
+<li><strong>STEP 4</strong>: Put subscription list and its management into an abstract <strong>base publisher class</strong>.</li>
+<li><strong>STEP 5</strong>: Implement <strong>concrete publisher classes</strong> that notify all subscribers when something significant happens.</li>
+<li><strong>STEP 6</strong>: <strong>Implement update</strong> in concrete subscriber classes, receiving event context as a parameter; alternatively, pass the publisher itself so subscribers can pull data directly.</li>
+<li><strong>STEP 7</strong>: The <strong>client</strong> creates all subscribers and registers them with the appropriate publishers</li>
+</ul>
+<h1 id="3-Example"><a href="#3-Example" class="headerlink" title="3 Example"></a>3 Example</h1><p>In this example, the <strong>Observer</strong> pattern lets the text editor object notify other service objects about changes in its state.</p>
+<p><strong>STEP 1</strong>: <strong>Split</strong> business logic into a publisher (core functionality) and subscribers (reactive logic)</p>
+<p>In this implementation, the editor <strong>delegates</strong> subscription management to a dedicated helper object — which you could upgrade into a centralized event dispatcher, allowing any object to act as a publisher.</p>
+<p>Adding new subscribers to the program <strong>doesn’t require changes</strong> to existing publisher classes, as long as they work with all subscribers through the same interface.</p>
+<img src="/2026/05/14/design-patterns/behavior-patterns/observer-pattern/editor-observer-event-manager-example.png" class="" title="editor-observer-event-manager-example">
+
+<p><strong>STEP 2</strong>: Declare a <strong>subscriber</strong> interface with at least one update method.</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">EventListener</span> <span class="hljs-title">is</span><br>    method update(filename)<br></code></pre></td></tr></table></figure>
+
+<p><strong>STEP 3</strong>: Declare a <strong>publisher</strong> interface with subscribe &#x2F; unsubscribe methods — publishers interact with subscribers only through the subscriber interface.</p>
+<p><strong>STEP 4</strong>: Put subscription list and its management into an abstract <strong>base publisher class</strong>.</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">EventManager</span> <span class="hljs-title">is</span><br>    <span class="hljs-keyword">private</span> field listeners: hash map of event types and listeners<br><br>    method subscribe(eventType, listener) <span class="hljs-keyword">is</span><br>        listeners.add(eventType, listener)<br><br>    method unsubscribe(eventType, listener) <span class="hljs-keyword">is</span><br>        listeners.remove(eventType, listener)<br><br>    method notify(eventType, <span class="hljs-keyword">data</span>) <span class="hljs-keyword">is</span><br>        foreach (listener <span class="hljs-keyword">in</span> listeners.of(eventType)) <span class="hljs-keyword">do</span><br>            listener.update(<span class="hljs-keyword">data</span>)<br></code></pre></td></tr></table></figure>
+
+<p> <strong>STEP 5</strong>: Implement <strong>concrete publisher classes</strong> that notify all subscribers when something significant happens.</p>
+<p><strong>STEP 6</strong>: <strong>Implement update</strong> in concrete subscriber classes, receiving event context as a parameter; alternatively, pass the publisher itself so subscribers can pull data directly.</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">LoggingListener</span> <span class="hljs-title">implements</span> <span class="hljs-title">EventListener</span> <span class="hljs-title">is</span><br>    <span class="hljs-keyword">private</span> field log: File<br>    <span class="hljs-keyword">private</span> field message: string<br><br>    <span class="hljs-keyword">constructor</span> LoggingListener(log_filename, message) <span class="hljs-keyword">is</span><br>        <span class="hljs-keyword">this</span>.log = new File(log_filename)<br>        <span class="hljs-keyword">this</span>.message = message<br><br>    method update(filename) <span class="hljs-keyword">is</span><br>        log.write(replace(<span class="hljs-string">&#x27;%s&#x27;</span>,filename,message))<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">EmailAlertsListener</span> <span class="hljs-title">implements</span> <span class="hljs-title">EventListener</span> <span class="hljs-title">is</span><br>    <span class="hljs-keyword">private</span> field email: string<br>    <span class="hljs-keyword">private</span> field message: string<br><br>    <span class="hljs-keyword">constructor</span> EmailAlertsListener(email, message) <span class="hljs-keyword">is</span><br>        <span class="hljs-keyword">this</span>.email = email<br>        <span class="hljs-keyword">this</span>.message = message<br><br>    method update(filename) <span class="hljs-keyword">is</span><br>        system.email(email, replace(<span class="hljs-string">&#x27;%s&#x27;</span>,filename,message))<br></code></pre></td></tr></table></figure>
+
+<p><strong>STEP 7</strong>: The <strong>client</strong> creates all subscribers and registers them with the appropriate publishers</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Editor</span> <span class="hljs-title">is</span><br>    <span class="hljs-keyword">public</span> field events: EventManager<br>    <span class="hljs-keyword">private</span> field file: File<br><br>    <span class="hljs-keyword">constructor</span> Editor() <span class="hljs-keyword">is</span><br>        events = new EventManager()<br><br>    <span class="hljs-comment">// Methods of business logic can notify subscribers about</span><br>    <span class="hljs-comment">// changes.</span><br>    method openFile(path) <span class="hljs-keyword">is</span><br>        <span class="hljs-keyword">this</span>.file = new File(path)<br>        events.notify(<span class="hljs-string">&quot;open&quot;</span>, file.name)<br><br>    method saveFile() <span class="hljs-keyword">is</span><br>        file.write()<br>        events.notify(<span class="hljs-string">&quot;save&quot;</span>, file.name)<br><br>    <span class="hljs-comment">// ...</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Application</span> <span class="hljs-title">is</span><br>    method config() <span class="hljs-keyword">is</span><br>        editor = new Editor()<br><br>        logger = new LoggingListener(<br>            <span class="hljs-string">&quot;/path/to/log.txt&quot;</span>,<br>            <span class="hljs-string">&quot;Someone has opened the file: %s&quot;</span>)<br>        editor.events.subscribe(<span class="hljs-string">&quot;open&quot;</span>, logger)<br><br>        emailAlerts = new EmailAlertsListener(<br>            <span class="hljs-string">&quot;admin@example.com&quot;</span>,<br>            <span class="hljs-string">&quot;Someone has changed the file: %s&quot;</span>)<br>        editor.events.subscribe(<span class="hljs-string">&quot;save&quot;</span>, emailAlerts)<br></code></pre></td></tr></table></figure>
+
+<h1 id="4-Analysis"><a href="#4-Analysis" class="headerlink" title="4 Analysis"></a>4 Analysis</h1><p>Advantages:</p>
+<ul>
+<li><em>Open&#x2F;Closed Principle</em>. You can introduce new subscriber classes without having to change the publisher’s code (and vice versa if there’s a publisher interface).</li>
+<li>You can establish relations between objects at runtime.<br>Disadvantages:</li>
+<li>Subscribers are notified in random order.</li>
+</ul>
+<h1 id="5-Reference"><a href="#5-Reference" class="headerlink" title="5 Reference"></a>5 Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://refactoring.guru/design-patterns/observer">Observer</a></li>
+</ul>
+
+    
+  </div>
+
+  
+    <div class="article-tags">
+      
+        <a href="/tags/design-patterns/" class="tag-link">#design-patterns</a>
+      
+        <a href="/tags/behavior-pattern/" class="tag-link">#behavior-pattern</a>
+      
+    </div>
+  
+</article>
+
+
+
+  <nav class="post-nav">
+    
+      <a href="/2026/05/14/design-patterns/structural-patterns/facade-pattern/" class="post-nav-prev">
+        <span class="post-nav-label">← 上一页</span>
+        <span class="post-nav-title">Facade Pattern</span>
+      </a>
+    
+    
+      <a href="/2026/05/14/programming-languages/kotlin-note/kotlin-basic/" class="post-nav-next">
+        <span class="post-nav-label">下一页 →</span>
+        <span class="post-nav-title">Kotlin Basic</span>
+      </a>
+    
+  </nav>
+
+
+          </div>
+        </div>
+      
+    </main>
+  </div>
+
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <p class="copyright">
+      &copy; 2024 - 2026 John Doe
+    </p>
+    <p class="powered">
+      由 <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/404AleFound" target="_blank">Mininote</a>
+    </p>
+  </div>
+  
+    <button class="back-to-top" aria-label="返回顶部">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+  
+</footer>
+
+
+  
+    <script src="/js/main.js"></script>
+  
+</body>
+</html>

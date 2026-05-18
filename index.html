@@ -81,6 +81,506 @@
   
     <header class="article-header">
       <h2 class="article-title">
+        <a href="/2026/05/19/tool-component/git-note/git-cli/">Git CLI</a>
+      </h2>
+      <div class="article-meta">
+        <time class="article-date">2026-05-19</time>
+        
+      </div>
+    </header>
+  
+
+  <div class="article-content">
+    
+      
+        Git 常见命令行新建仓库
+git initgit add .git commit -m &#x27;init commit.&#x27;
+
+基于当前分支新建本地分支
+git checkout -b &lt;NEW_LOCAL_BRANCH_NAME&gt;
+
+链接远程仓库
+git remote add &lt;REMOTE_REPO_NAME&gt; &lt;REMOTE_REPO_URL&gt;
+
+推送到远端仓库
+git push &lt;REMOTE_REPO_NAME&gt; &lt;REMOTE_BRANCH&gt;
+
+删除仓库分支
+gi...
+      
+      
+        <p class="article-readmore">
+          <a href="/2026/05/19/tool-component/git-note/git-cli/" class="readmore-link">Read More →</a>
+        </p>
+      
+    
+  </div>
+
+  
+</article>
+
+  
+    <article class="article article-preview">
+  
+    <header class="article-header">
+      <h2 class="article-title">
+        <a href="/2026/05/16/programming-languages/kotlin-note/kotlin-class/">Kotlin Class</a>
+      </h2>
+      <div class="article-meta">
+        <time class="article-date">2026-05-16</time>
+        
+          <span class="article-separator">·</span>
+          <span class="article-category">
+            
+              
+              <a href="/categories/programming-languages/">programming-languages</a>
+            
+              , 
+              <a href="/categories/programming-languages/kotlin-note/">kotlin-note</a>
+            
+          </span>
+        
+      </div>
+    </header>
+  
+
+  <div class="article-content">
+    
+      
+        
+  
+    
+    Note
+  与其他面向对象语言一样，Kotlin 使用类来封装数据和行为，以编写可复用的结构化代码。
+类是对象的蓝图或模板，你通过构造函数来创建对象。当你创建类的一个实例时，就是基于该蓝图创建一个具体的对象。
+
+
+1 常规类 类的内容包括，类头和类体：
+
+类头包括但不限于：
+class 关键字
+类名
+类型参数（如有）
+主构造函数（可选）
+
+
+类体，也是可选的，由花括号 &#123;&#125; 包围，包含类成员：
+次构造函数
+初始化代码块
+函数
+属性
+嵌套类和内部类
+对象声明
+
+
+
+这里有一些构造类的例子：
+class ...
+      
+      
+        <p class="article-readmore">
+          <a href="/2026/05/16/programming-languages/kotlin-note/kotlin-class/" class="readmore-link">Read More →</a>
+        </p>
+      
+    
+  </div>
+
+  
+</article>
+
+  
+    <article class="article article-preview">
+  
+    <header class="article-header">
+      <h2 class="article-title">
+        <a href="/2026/05/15/tool-component/git-note/git-branching-model/">Git Branching Model</a>
+      </h2>
+      <div class="article-meta">
+        <time class="article-date">2026-05-15</time>
+        
+          <span class="article-separator">·</span>
+          <span class="article-category">
+            
+              
+              <a href="/categories/tool-component/">tool-component</a>
+            
+              , 
+              <a href="/categories/tool-component/git-note/">git-note</a>
+            
+          </span>
+        
+      </div>
+    </header>
+  
+
+  <div class="article-content">
+    
+      
+        
+  
+    
+    Note
+  这是根据 Vincent Diressen 的博客 —— “A successful Git branching model” 内容所写的一篇笔记。
+
+
+这篇博客提出一种 Git 仓库模式 —— “去中心化但集中化”。
+
+
+
+
+主要分支更具
+
+master
+develop
+
+Among the remote branches, origin/master is considered to be the main branch, where the source code of HEAD always refl...
+      
+      
+        <p class="article-readmore">
+          <a href="/2026/05/15/tool-component/git-note/git-branching-model/" class="readmore-link">Read More →</a>
+        </p>
+      
+    
+  </div>
+
+  
+</article>
+
+  
+    <article class="article article-preview">
+  
+    <header class="article-header">
+      <h2 class="article-title">
+        <a href="/2026/05/14/design-patterns/structural-patterns/decoretor-pattern/">Decoretor Pattern</a>
+      </h2>
+      <div class="article-meta">
+        <time class="article-date">2026-05-14</time>
+        
+          <span class="article-separator">·</span>
+          <span class="article-category">
+            
+              
+              <a href="/categories/design-patterns/">design-patterns</a>
+            
+              , 
+              <a href="/categories/design-patterns/structural-patterns/">structural-patterns</a>
+            
+          </span>
+        
+      </div>
+    </header>
+  
+
+  <div class="article-content">
+    
+      
+        
+  
+    
+    Note
+  Decorator is a structural design pattern that lets you attach new behaviors to objects by placing these objects inside special wrapper objects that contain the behavior without modifying it.
+
+
+1 BackgroundImagine you’re building a notification library. It s...
+      
+      
+        <p class="article-readmore">
+          <a href="/2026/05/14/design-patterns/structural-patterns/decoretor-pattern/" class="readmore-link">Read More →</a>
+        </p>
+      
+    
+  </div>
+
+  
+</article>
+
+  
+    <article class="article article-preview">
+  
+    <header class="article-header">
+      <h2 class="article-title">
+        <a href="/2026/05/14/design-patterns/structural-patterns/facade-pattern/">Facade Pattern</a>
+      </h2>
+      <div class="article-meta">
+        <time class="article-date">2026-05-14</time>
+        
+          <span class="article-separator">·</span>
+          <span class="article-category">
+            
+              
+              <a href="/categories/design-patterns/">design-patterns</a>
+            
+              , 
+              <a href="/categories/design-patterns/structural-patterns/">structural-patterns</a>
+            
+          </span>
+        
+      </div>
+    </header>
+  
+
+  <div class="article-content">
+    
+      
+        
+  
+    
+    Note
+  Facade pattern provides a simplified interface to a complex subsystem, hiding the messy details behind a single clean entry point.
+
+
+
+      
+      
+        <p class="article-readmore">
+          <a href="/2026/05/14/design-patterns/structural-patterns/facade-pattern/" class="readmore-link">Read More →</a>
+        </p>
+      
+    
+  </div>
+
+  
+</article>
+
+  
+    <article class="article article-preview">
+  
+    <header class="article-header">
+      <h2 class="article-title">
+        <a href="/2026/05/14/design-patterns/behavior-patterns/observer-pattern/">Observer Pattern</a>
+      </h2>
+      <div class="article-meta">
+        <time class="article-date">2026-05-14</time>
+        
+          <span class="article-separator">·</span>
+          <span class="article-category">
+            
+              
+              <a href="/categories/design-patterns/">design-patterns</a>
+            
+              , 
+              <a href="/categories/design-patterns/behavior-patterns/">behavior-patterns</a>
+            
+          </span>
+        
+      </div>
+    </header>
+  
+
+  <div class="article-content">
+    
+      
+        
+  
+    
+    Note
+  Observer is a behavior pattern design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.
+
+
+1 Background
+
+Imagine that you have two types of objects: a Customer and a...
+      
+      
+        <p class="article-readmore">
+          <a href="/2026/05/14/design-patterns/behavior-patterns/observer-pattern/" class="readmore-link">Read More →</a>
+        </p>
+      
+    
+  </div>
+
+  
+</article>
+
+  
+    <article class="article article-preview">
+  
+    <header class="article-header">
+      <h2 class="article-title">
+        <a href="/2026/05/14/programming-languages/kotlin-note/kotlin-basic/">Kotlin Basic</a>
+      </h2>
+      <div class="article-meta">
+        <time class="article-date">2026-05-14</time>
+        
+          <span class="article-separator">·</span>
+          <span class="article-category">
+            
+              
+              <a href="/categories/programming-languages/">programming-languages</a>
+            
+              , 
+              <a href="/categories/programming-languages/kotlin-note/">kotlin-note</a>
+            
+          </span>
+        
+      </div>
+    </header>
+  
+
+  <div class="article-content">
+    
+      
+        
+  
+    
+    Note
+  Including four parts:
+
+keywords and operators,
+package and imports,
+annotations,
+visibility modifiers.
+
+
+
+1 Keywords1.1 Hard Keywords 硬关键字All of the below are hard keywords — they cannot be used as identifiers.
+Declaration
+
+class: declares a class.
+interfac...
+      
+      
+        <p class="article-readmore">
+          <a href="/2026/05/14/programming-languages/kotlin-note/kotlin-basic/" class="readmore-link">Read More →</a>
+        </p>
+      
+    
+  </div>
+
+  
+</article>
+
+  
+    <article class="article article-preview">
+  
+    <header class="article-header">
+      <h2 class="article-title">
+        <a href="/2026/05/14/design-patterns/behavior-patterns/strategy-pattern/">Strategy Pattern</a>
+      </h2>
+      <div class="article-meta">
+        <time class="article-date">2026-05-14</time>
+        
+          <span class="article-separator">·</span>
+          <span class="article-category">
+            
+              
+              <a href="/categories/design-patterns/">design-patterns</a>
+            
+              , 
+              <a href="/categories/design-patterns/behavior-patterns/">behavior-patterns</a>
+            
+          </span>
+        
+      </div>
+    </header>
+  
+
+  <div class="article-content">
+    
+      
+        
+  
+    
+    Note
+  Strategy pattern will define a family of algorithms, encapsulate each into its own class, and make them interchangeable — so the caller never needs to know the details.
+
+
+1 BackgroundImagine you’re building a navigation app. It starts simple — just driving ...
+      
+      
+        <p class="article-readmore">
+          <a href="/2026/05/14/design-patterns/behavior-patterns/strategy-pattern/" class="readmore-link">Read More →</a>
+        </p>
+      
+    
+  </div>
+
+  
+</article>
+
+  
+    <article class="article article-preview">
+  
+    <header class="article-header">
+      <h2 class="article-title">
+        <a href="/2026/05/13/programming-languages/kotlin-note/kotlin-types/">Kotlin Types</a>
+      </h2>
+      <div class="article-meta">
+        <time class="article-date">2026-05-13</time>
+        
+          <span class="article-separator">·</span>
+          <span class="article-category">
+            
+              
+              <a href="/categories/programming-languages/">programming-languages</a>
+            
+              , 
+              <a href="/categories/programming-languages/kotlin-note/">kotlin-note</a>
+            
+          </span>
+        
+      </div>
+    </header>
+  
+
+  <div class="article-content">
+    
+      
+        
+  
+    
+    Note
+  在 Kotlin 中，一切皆对象——你可以在任何变量上调用成员函数和属性。而本节主要介绍 Kotlin 中一些常用的基本类型，以下为 Kotlin 中常见的基本类型：
+
+数字及其无符号类型
+布尔值
+字符
+字符串
+数组
+
+
+
+1 数字Kotlin 中数字的种类如下：
+
+整数：byte、short、int 、 long
+浮点数：float、double
+
+1.1 整型Kotlin 提供四种不同位数的整型，如下表格：
+
+
+
+类型
+位数
+最小值
+最大值
+
+
+
+Byte
+8
+-2^7
+2^7 - 1
+
+
+Short
+1...
+      
+      
+        <p class="article-readmore">
+          <a href="/2026/05/13/programming-languages/kotlin-note/kotlin-types/" class="readmore-link">Read More →</a>
+        </p>
+      
+    
+  </div>
+
+  
+</article>
+
+  
+    <article class="article article-preview">
+  
+    <header class="article-header">
+      <h2 class="article-title">
         <a href="/2026/05/10/leetcode/0001-two-sum/">0001 两数之和</a>
       </h2>
       <div class="article-meta">
@@ -115,312 +615,12 @@
 </article>
 
   
-    <article class="article article-preview">
-  
-    <header class="article-header">
-      <h2 class="article-title">
-        <a href="/2026/05/10/leetcode/0002-add-two-numbers/">0002 两数相加</a>
-      </h2>
-      <div class="article-meta">
-        <time class="article-date">2026-05-10</time>
-        
-          <span class="article-separator">·</span>
-          <span class="article-category">
-            
-              
-              <a href="/categories/leetcode/">leetcode</a>
-            
-          </span>
-        
-      </div>
-    </header>
-  
-
-  <div class="article-content">
-    
-      
-        <p>摘要：双指针技巧题目，通过左右指针的相向移动高效求解问题。</p>
-      
-      
-        <p class="article-readmore">
-          <a href="/2026/05/10/leetcode/0002-add-two-numbers/" class="readmore-link">Read More →</a>
-        </p>
-      
-    
-  </div>
-
-  
-</article>
-
-  
-    <article class="article article-preview">
-  
-    <header class="article-header">
-      <h2 class="article-title">
-        <a href="/2026/05/06/others/technical-english/">专业英语</a>
-      </h2>
-      <div class="article-meta">
-        <time class="article-date">2026-05-06</time>
-        
-          <span class="article-separator">·</span>
-          <span class="article-category">
-            
-              
-              <a href="/categories/others/">others</a>
-            
-          </span>
-        
-      </div>
-    </header>
-  
-
-  <div class="article-content">
-    
-      
-        <p>本篇整理了土木与结构工程领域的专业英语词汇与典型句子，按专题（如钢筋混凝土、钢结构、抗震、复合结构、建筑3D打印、建筑模型及金贸塔等）分类，便于查阅与学习。适用于工程专业学生、翻译人员及行业从业者，用来提升专业英语阅读、表达与翻译能力。</p>
-      
-      
-        <p class="article-readmore">
-          <a href="/2026/05/06/others/technical-english/" class="readmore-link">Read More →</a>
-        </p>
-      
-    
-  </div>
-
-  
-</article>
-
-  
-    <article class="article article-preview">
-  
-    <header class="article-header">
-      <h2 class="article-title">
-        <a href="/2026/04/22/leetcode/0003-longest-substring-without-repeating-characters/">0003 无重复字符的最长子串</a>
-      </h2>
-      <div class="article-meta">
-        <time class="article-date">2026-04-22</time>
-        
-          <span class="article-separator">·</span>
-          <span class="article-category">
-            
-              
-              <a href="/categories/leetcode/">leetcode</a>
-            
-          </span>
-        
-      </div>
-    </header>
-  
-
-  <div class="article-content">
-    
-      
-        <p>摘要：字符串处理题目，涉及字符匹配、子串查找或字符串变换技巧。</p>
-      
-      
-        <p class="article-readmore">
-          <a href="/2026/04/22/leetcode/0003-longest-substring-without-repeating-characters/" class="readmore-link">Read More →</a>
-        </p>
-      
-    
-  </div>
-
-  
-</article>
-
-  
-    <article class="article article-preview">
-  
-    <header class="article-header">
-      <h2 class="article-title">
-        <a href="/2026/04/22/leetcode/0025-reverse-nodes-in-k-group/">0025 K个一组反转链表</a>
-      </h2>
-      <div class="article-meta">
-        <time class="article-date">2026-04-22</time>
-        
-          <span class="article-separator">·</span>
-          <span class="article-category">
-            
-              
-              <a href="/categories/leetcode/">leetcode</a>
-            
-          </span>
-        
-      </div>
-    </header>
-  
-
-  <div class="article-content">
-    
-      
-        <p>摘要：链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。</p>
-      
-      
-        <p class="article-readmore">
-          <a href="/2026/04/22/leetcode/0025-reverse-nodes-in-k-group/" class="readmore-link">Read More →</a>
-        </p>
-      
-    
-  </div>
-
-  
-</article>
-
-  
-    <article class="article article-preview">
-  
-    <header class="article-header">
-      <h2 class="article-title">
-        <a href="/2026/04/22/leetcode/0146-lru-cache/">0146 LRU缓存机制</a>
-      </h2>
-      <div class="article-meta">
-        <time class="article-date">2026-04-22</time>
-        
-          <span class="article-separator">·</span>
-          <span class="article-category">
-            
-              
-              <a href="/categories/leetcode/">leetcode</a>
-            
-          </span>
-        
-      </div>
-    </header>
-  
-
-  <div class="article-content">
-    
-      
-        <p>摘要：哈希表应用题目，借助键值对结构实现快速查找与数据缓存。</p>
-      
-      
-        <p class="article-readmore">
-          <a href="/2026/04/22/leetcode/0146-lru-cache/" class="readmore-link">Read More →</a>
-        </p>
-      
-    
-  </div>
-
-  
-</article>
-
-  
-    <article class="article article-preview">
-  
-    <header class="article-header">
-      <h2 class="article-title">
-        <a href="/2026/04/22/leetcode/0206-reverse-linked-list/">0206 反转链表</a>
-      </h2>
-      <div class="article-meta">
-        <time class="article-date">2026-04-22</time>
-        
-          <span class="article-separator">·</span>
-          <span class="article-category">
-            
-              
-              <a href="/categories/leetcode/">leetcode</a>
-            
-          </span>
-        
-      </div>
-    </header>
-  
-
-  <div class="article-content">
-    
-      
-        <p>摘要：链表经典题目，考察指针操作与链表遍历技巧，是面试高频题型。</p>
-      
-      
-        <p class="article-readmore">
-          <a href="/2026/04/22/leetcode/0206-reverse-linked-list/" class="readmore-link">Read More →</a>
-        </p>
-      
-    
-  </div>
-
-  
-</article>
-
-  
-    <article class="article article-preview">
-  
-    <header class="article-header">
-      <h2 class="article-title">
-        <a href="/2026/04/22/leetcode/0912-sort-an-array/">0912 排序数组</a>
-      </h2>
-      <div class="article-meta">
-        <time class="article-date">2026-04-22</time>
-        
-          <span class="article-separator">·</span>
-          <span class="article-category">
-            
-              
-              <a href="/categories/leetcode/">leetcode</a>
-            
-          </span>
-        
-      </div>
-    </header>
-  
-
-  <div class="article-content">
-    
-      
-        <p>摘要：数组处理技巧题目，考察排序、二分查找或数组元素的巧妙操作。</p>
-      
-      
-        <p class="article-readmore">
-          <a href="/2026/04/22/leetcode/0912-sort-an-array/" class="readmore-link">Read More →</a>
-        </p>
-      
-    
-  </div>
-
-  
-</article>
-
-  
-    <article class="article article-preview">
-  
-    <header class="article-header">
-      <h2 class="article-title">
-        <a href="/2026/04/22/leetcode/0215-kth-largest-element-in-an-array/">0215 数组中的第K个最大元素</a>
-      </h2>
-      <div class="article-meta">
-        <time class="article-date">2026-04-22</time>
-        
-          <span class="article-separator">·</span>
-          <span class="article-category">
-            
-              
-              <a href="/categories/leetcode/">leetcode</a>
-            
-          </span>
-        
-      </div>
-    </header>
-  
-
-  <div class="article-content">
-    
-      
-        <p>摘要：数组处理技巧题目，考察排序、二分查找或数组元素的巧妙操作。</p>
-      
-      
-        <p class="article-readmore">
-          <a href="/2026/04/22/leetcode/0215-kth-largest-element-in-an-array/" class="readmore-link">Read More →</a>
-        </p>
-      
-    
-  </div>
-
-  
-</article>
-
-  
 </div>
 
+
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 →</a>
+  </nav>
 
 
 

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>
+  
+    Kotlin Types | 404AleFound
+  
+</title>
+
+
+
+
+
+<meta name="author" content="John Doe">
+
+
+  <link rel="shortcut icon" href="/favicon.svg">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<meta name="description" content="Note   在 Kotlin 中，一切皆对象——你可以在任何变量上调用成员函数和属性。而本节主要介绍 Kotlin 中一些常用的基本类型，以下为 Kotlin 中常见的基本类型：  数字及其无符号类型 布尔值 字符 字符串 数组    1 数字Kotlin 中数字的种类如下：  整数：byte、short、int 、 long 浮点数：float、double  1.1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin Types">
+<meta property="og:url" content="https://404alefound.github.io/2026/05/13/programming-languages/kotlin-note/kotlin-types/index.html">
+<meta property="og:site_name" content="404AleFound">
+<meta property="og:description" content="Note   在 Kotlin 中，一切皆对象——你可以在任何变量上调用成员函数和属性。而本节主要介绍 Kotlin 中一些常用的基本类型，以下为 Kotlin 中常见的基本类型：  数字及其无符号类型 布尔值 字符 字符串 数组    1 数字Kotlin 中数字的种类如下：  整数：byte、short、int 、 long 浮点数：float、double  1.1">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-18T16:19:49.112Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="kotlin">
+<meta property="article:tag" content="programming-language">
+<meta name="twitter:card" content="summary">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-title">404AleFound</a>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-list">
+        
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">Home</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories" class="nav-link">Categories</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archives" class="nav-link">Archives</a>
+            </li>
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="site-wrapper">
+    
+    <main class="site-main has-toc">
+      
+        <div class="main-content main-with-toc">
+          
+            
+  <aside class="toc-sidebar">
+    <div class="toc-inner">
+      <p class="toc-title">目录</p>
+      <div class="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E6%95%B0%E5%AD%97"><span class="toc-text">1 数字</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E6%95%B4%E5%9E%8B"><span class="toc-text">1.1 整型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E6%B5%AE%E7%82%B9%E5%9E%8B"><span class="toc-text">1.2 浮点型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E8%BF%90%E7%AE%97%E4%B8%AD%E7%9A%84%E7%B1%BB%E5%9E%8B%E9%97%AE%E9%A2%98"><span class="toc-text">1.3 运算中的类型问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">1.4 类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-%E6%95%B0%E6%8D%AE%E6%BA%A2%E5%87%BA"><span class="toc-text">1.5 数据溢出</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%97%A0%E7%AC%A6%E5%8F%B7%E7%B1%BB%E5%9E%8B"><span class="toc-text">2 无符号类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%B8%83%E5%B0%94%E5%80%BC"><span class="toc-text">3 布尔值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%AD%97%E7%AC%A6"><span class="toc-text">4 字符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">5 字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E6%95%B0%E7%BB%84"><span class="toc-text">6 数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96%E5%92%8C%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5"><span class="toc-text">7 类型转化和类型检查</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5"><span class="toc-text">7.1 类型检查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">7.2 类型转换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D"><span class="toc-text">8 类型别名</span></a></li></ol>
+      </div>
+    </div>
+  </aside>
+
+
+          
+          <div class="content-area">
+            <article class="article">
+  
+    <header class="article-header article-header-full">
+      <h1 class="article-title">Kotlin Types</h1>
+      <div class="article-meta">
+        <time class="article-date">2026-05-13</time>
+        
+          <span class="article-separator">·</span>
+          <span class="article-updated">updated 2026-05-19</span>
+        
+        
+          <span class="article-separator">·</span>
+          <span class="article-category">
+            
+              
+              <a href="/categories/programming-languages/">programming-languages</a>
+            
+              , 
+              <a href="/categories/programming-languages/kotlin-note/">kotlin-note</a>
+            
+          </span>
+        
+      </div>
+    </header>
+  
+
+  <div class="article-content">
+    
+      <div class="markdown-alert markdown-alert-note">
+  <p class="markdown-alert-title">
+    <svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
+    Note
+  </p>在 Kotlin 中，一切皆对象——你可以在任何变量上调用成员函数和属性。而本节主要介绍 Kotlin 中一些常用的基本类型，<strong>以下为 Kotlin 中常见的基本类型：</strong></p>
+<ul>
+<li>数字及其无符号类型</li>
+<li>布尔值</li>
+<li>字符</li>
+<li>字符串</li>
+<li>数组</li>
+</ul>
+
+</div>
+<h1 id="1-数字"><a href="#1-数字" class="headerlink" title="1 数字"></a>1 数字</h1><p>Kotlin 中数字的种类如下：</p>
+<ul>
+<li>整数：<code>byte</code>、<code>short</code>、<code>int</code> 、 <code>long</code></li>
+<li>浮点数：<code>float</code>、<code>double</code></li>
+</ul>
+<h2 id="1-1-整型"><a href="#1-1-整型" class="headerlink" title="1.1 整型"></a>1.1 整型</h2><p>Kotlin 提供四种不同位数的整型，如下表格：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>位数</th>
+<th>最小值</th>
+<th>最大值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Byte</code></td>
+<td>8</td>
+<td><code>-2^7</code></td>
+<td><code>2^7 - 1</code></td>
+</tr>
+<tr>
+<td><code>Short</code></td>
+<td>16</td>
+<td><code>-2^15</code></td>
+<td><code>2^15 - 1</code></td>
+</tr>
+<tr>
+<td><code>Int</code></td>
+<td>32</td>
+<td><code>-2^31</code></td>
+<td><code>2^31 - </code></td>
+</tr>
+<tr>
+<td><code>Long</code></td>
+<td>64</td>
+<td><code>-2^63</code></td>
+<td><code>2^63 - 1</code></td>
+</tr>
+</tbody></table>
+<p>Kotlin 支持以下整数字面量形式，但不支持八进制：</p>
+<ul>
+<li>十进制：<code>123</code></li>
+<li>十六进制：<code>0x0F</code></li>
+<li>二进制：<code>0b00001011</code></li>
+</ul>
+<p>要声明数值，请显式指定类型：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> one: <span class="hljs-built_in">Int</span> = <span class="hljs-number">1</span><br><br><span class="hljs-comment">// Use underscores to improve readability</span><br><span class="hljs-keyword">val</span> oneBillion: <span class="hljs-built_in">Long</span> = <span class="hljs-number">1_000_000_000</span><br><span class="hljs-keyword">val</span> hexBytes: <span class="hljs-built_in">Int</span> = <span class="hljs-number">0xFF_EC_DE_5E</span><br><span class="hljs-keyword">val</span> bytes: <span class="hljs-built_in">Int</span> = <span class="hljs-number">0b11010010_01101001_10010100_10010010</span><br><br><span class="hljs-keyword">val</span> oneByte: <span class="hljs-built_in">Byte</span> = <span class="hljs-number">1</span><br><span class="hljs-keyword">val</span> oneShort: <span class="hljs-built_in">Short</span> = <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p>也可以追加 <code>L</code> 后缀，以隐式声明 <code>Long</code> 值：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> oneLong = <span class="hljs-number">1L</span><br></code></pre></td></tr></table></figure>
+
+<p>当显式声明一个数值类型时，<strong>编译器会检查</strong>该值是否适合该类型的范围：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> oneByte: <span class="hljs-built_in">Byte</span> = <span class="hljs-number">1</span> <span class="hljs-comment">// Value fits in Byte</span><br><span class="hljs-keyword">val</span> tooBig: <span class="hljs-built_in">Byte</span> = <span class="hljs-number">128</span> <span class="hljs-comment">// Error the value is too big for Byte</span><br></code></pre></td></tr></table></figure>
+
+<p>当未指定数值类型时，如果值适合 <code>Int</code> 范围，Kotlin 会推断 <code>Int</code> 。否则，Kotlin 会推断 <code>Long</code> ：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> million = <span class="hljs-number">1_000_000</span> <span class="hljs-comment">// Int</span><br><span class="hljs-keyword">val</span> threeBillion = <span class="hljs-number">3_000_000_000</span> <span class="hljs-comment">// Long</span><br></code></pre></td></tr></table></figure>
+
+<p>当一个值可能不存在时，使用 <code>?</code> 来保证类型的安全性：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-keyword">val</span> maybeAbsent: <span class="hljs-built_in">Int</span>? = <span class="hljs-literal">null</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="1-2-浮点型"><a href="#1-2-浮点型" class="headerlink" title="1.2 浮点型"></a>1.2 浮点型</h2><p>对于带有小数部分的数字，Kotlin 提供了 <code>Float</code> 和 <code>Double</code> 。这两种浮点类型在大小和精度上有所不同：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>位数</th>
+<th>有效位</th>
+<th>指数位</th>
+<th>十进制位数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Float</code></td>
+<td>32</td>
+<td>24</td>
+<td>8</td>
+<td>6-7</td>
+</tr>
+<tr>
+<td><code>Double</code></td>
+<td>64</td>
+<td>53</td>
+<td>11</td>
+<td>15-16</td>
+</tr>
+</tbody></table>
+<p>要声明浮点字面量，请包含小数点（ <code>.</code> ）或使用指数表示法：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> pi = <span class="hljs-number">3.14</span><br><span class="hljs-keyword">val</span> avogadro = <span class="hljs-number">6.02214076e23</span><br></code></pre></td></tr></table></figure>
+
+<p>默认情况下，Kotlin 将浮点字面量推断为 <code>Double</code> 。要声明一个 <code>Float</code> ，请添加 <code>f</code> 或 <code>F</code> 后缀：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> pi = <span class="hljs-number">3.14</span> <span class="hljs-comment">// Double</span><br><span class="hljs-keyword">val</span> eFloat = <span class="hljs-number">2.7182818284f</span> <span class="hljs-comment">// Float</span><br></code></pre></td></tr></table></figure>
+
+<p>如果一个值可能不存在，使用 <code>?</code> 保证其安全性：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> maybeAbsent: <span class="hljs-built_in">Double</span>? = <span class="hljs-literal">null</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="1-3-运算中的类型问题"><a href="#1-3-运算中的类型问题" class="headerlink" title="1.3 运算中的类型问题"></a>1.3 运算中的类型问题</h2><p>不同类型数字之间的运算结果的类型取决于操作数的类型，这便是混合数值运算。</p>
+<p>Kotlin 不支持<strong>赋值或函数参数</strong>的隐式转换。但是，你可以在算术表达式中组合不同的数值类型。在这种情况下，Kotlin 根据操作数类型确定结果类型，并且算术运算符会自动处理转换，一般想高位数的类型转换：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> intNumber: <span class="hljs-built_in">Int</span> = <span class="hljs-number">1</span><br><span class="hljs-keyword">val</span> longNumber: <span class="hljs-built_in">Long</span> = <span class="hljs-number">1000</span><br><span class="hljs-keyword">val</span> result = intNumber + longNumber <span class="hljs-comment">// 1001, Long</span><br></code></pre></td></tr></table></figure>
+
+<p>如果你尝试将结果赋值给更小的类型，编译器会报告错误：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> intNumber: <span class="hljs-built_in">Int</span> = <span class="hljs-number">1</span><br><span class="hljs-keyword">val</span> longNumber: <span class="hljs-built_in">Long</span> = <span class="hljs-number">1000</span><br><span class="hljs-keyword">val</span> result: <span class="hljs-built_in">Int</span> = intNumber + longNumber<br><span class="hljs-comment">// Error: Initializer type mismatch</span><br></code></pre></td></tr></table></figure>
+
+<p>整数之间的除法始终返回整数结果。编译器丢弃小数部分：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> intValue = <span class="hljs-number">5</span> / <span class="hljs-number">2</span><br>println(intValue) <span class="hljs-comment">// 2</span><br><br><span class="hljs-keyword">val</span> longValue = <span class="hljs-number">5L</span> / <span class="hljs-number">2</span><br>println(longValue) <span class="hljs-comment">// 2</span><br></code></pre></td></tr></table></figure>
+
+<p>要返回浮点数，必须让一个操作数位浮点类型：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> a = <span class="hljs-number">5</span> / <span class="hljs-number">2.0</span><br>println(a) <span class="hljs-comment">// 2.5</span><br><br><span class="hljs-keyword">val</span> b = <span class="hljs-number">5</span> / <span class="hljs-number">2.</span>toDouble()<br>println(b) <span class="hljs-comment">// 2.5</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="1-4-类型转换"><a href="#1-4-类型转换" class="headerlink" title="1.4 类型转换"></a>1.4 类型转换</h2><p>数值类型之间不是彼此的子类型。Kotlin 要求显式转换以避免静默数据丢失和意外行为：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// 一个期望 Double 的函数不能直接接受 Int 或 Float 值而不进行转换。</span><br><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">printDouble</span><span class="hljs-params">(x: <span class="hljs-type">Double</span>)</span></span> &#123;<br>    print(x)<br>&#125;<br><br><span class="hljs-keyword">val</span> x = <span class="hljs-number">1.0</span> <span class="hljs-comment">// Double</span><br><span class="hljs-keyword">val</span> xInt = <span class="hljs-number">1</span> <span class="hljs-comment">// Int</span><br><span class="hljs-keyword">val</span> xFloat = <span class="hljs-number">1.0f</span> <span class="hljs-comment">// Float</span><br><span class="hljs-keyword">val</span> one: <span class="hljs-built_in">Double</span> = <span class="hljs-number">1</span> <span class="hljs-comment">// Error: initializer type mismatch</span><br><br>printDouble(x) <span class="hljs-comment">// OK</span><br>printDouble(xInt) <span class="hljs-comment">// Error: argument type mismatch</span><br>printDouble(xFloat) <span class="hljs-comment">// Error: argument type mismatch</span><br></code></pre></td></tr></table></figure>
+
+<p>所有数字类型都支持转换为其他数字类型。要将一个数字转换为另一种类型，请使用显式转换函数：<code>toByte()</code>、 <code>toShort()</code>、<code>toInt()</code>、<code>toLong()</code>、<code>toFloat()</code>、<code>toDouble()</code>。</p>
+<p>当你将一个浮点值转换为整数类型时，编译器会丢失小数部分：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> d: <span class="hljs-built_in">Double</span> = <span class="hljs-number">1.5</span><br><span class="hljs-keyword">val</span> l: <span class="hljs-built_in">Long</span> = d.toLong()<br><br>println(l) <span class="hljs-comment">// 1</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="1-5-数据溢出"><a href="#1-5-数据溢出" class="headerlink" title="1.5 数据溢出"></a>1.5 数据溢出</h2><p>数值类型只能表示其定义范围内的值。如果运算结果超出该范围，就会发生溢出。如果你将一个值转换为更小的数值类型，转换后的值可能无法保留原始的数值。这种行为即使编译器接受它，也可能影响你的代码结果。</p>
+<p>每种整数类型只能存储其定义范围内的值。当算术运算的结果超出该范围时，就会发生数据溢出，这里，结果会回绕，因为值不再适合 <code>Int</code> ：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> intNumber: <span class="hljs-built_in">Int</span> = <span class="hljs-number">2147483647</span><br><span class="hljs-comment">// Max Int value is 2147483647</span><br>println(intNumber + <span class="hljs-number">1</span>) <span class="hljs-comment">// -2147483648</span><br></code></pre></td></tr></table></figure>
+
+<p>否定溢出：溢出也可能发生在否定过程中：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// 不能将 `Int.MIN_VALUE` 的正数对应表示为 `Int` ：</span><br><span class="hljs-keyword">val</span> min = <span class="hljs-built_in">Int</span>.MIN_VALUE<br>println(-min) <span class="hljs-comment">// -2147483648</span><br></code></pre></td></tr></table></figure>
+
+<p>窄化转化:：当你将一个值转换为较小的整数类型时，结果可能不会保留原始数值：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> large: <span class="hljs-built_in">Int</span> = <span class="hljs-number">130</span><br><span class="hljs-keyword">val</span> narrowed: <span class="hljs-built_in">Byte</span> = large.toByte()<br><br>println(narrowed) <span class="hljs-comment">// -126</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="2-无符号类型"><a href="#2-无符号类型" class="headerlink" title="2 无符号类型"></a>2 无符号类型</h1><p>除了一般的整型，Kotlin 还提供一下无符号整数类型：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小 bit</th>
+<th>最小值</th>
+<th>最大值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>UByte</code></td>
+<td>8</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>UShort</code></td>
+<td>16</td>
+<td>0</td>
+<td>65,535</td>
+</tr>
+<tr>
+<td><code>UInt</code></td>
+<td>32</td>
+<td>0</td>
+<td>4,294,967,295 (232 - 1)</td>
+</tr>
+<tr>
+<td><code>ULong</code></td>
+<td>64</td>
+<td>0</td>
+<td>18,446,744,073,709,551,615 (264 - 1)</td>
+</tr>
+</tbody></table>
+<h1 id="3-布尔值"><a href="#3-布尔值" class="headerlink" title="3 布尔值"></a>3 布尔值</h1><p><code>Boolean</code> 类型表示逻辑值： <code>true</code> 和 <code>false</code> ，其常常用于回答是否问题，或者条件语句中使用。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> isTrue: <span class="hljs-built_in">Boolean</span> = <span class="hljs-literal">true</span><br><span class="hljs-keyword">val</span> isFalse: <span class="hljs-built_in">Boolean</span> = <span class="hljs-literal">false</span><br><br><span class="hljs-keyword">val</span> isEnabled: <span class="hljs-built_in">Boolean</span>? = <span class="hljs-literal">null</span><br><span class="hljs-comment">// 当一个值可以是 null 时，可以使用 ? 来进行安全的类型声明</span><br></code></pre></td></tr></table></figure>
+
+<p>有很多情况会产生布尔值：</p>
+<ul>
+<li>表达比较式和函数</li>
+<li>布尔操作</li>
+<li>条件语句下的布尔</li>
+</ul>
+<h1 id="4-字符"><a href="#4-字符" class="headerlink" title="4 字符"></a>4 字符</h1><h1 id="5-字符串"><a href="#5-字符串" class="headerlink" title="5 字符串"></a>5 字符串</h1><h1 id="6-数组"><a href="#6-数组" class="headerlink" title="6 数组"></a>6 数组</h1><h1 id="7-类型转化和类型检查"><a href="#7-类型转化和类型检查" class="headerlink" title="7 类型转化和类型检查"></a>7 类型转化和类型检查</h1><p>在 Kotlin 中，你可以在运行时对类型执行两件事：</p>
+<ul>
+<li>检查对象是否为特定类型，类型检查帮助你确认你正在处理的对象类型。</li>
+<li>将其转换为另一种类型，类型转换则尝试将对象转换为另一种类型。</li>
+</ul>
+<h2 id="7-1-类型检查"><a href="#7-1-类型检查" class="headerlink" title="7.1 类型检查"></a>7.1 类型检查</h2><h2 id="7-2-类型转换"><a href="#7-2-类型转换" class="headerlink" title="7.2 类型转换"></a>7.2 类型转换</h2><h1 id="8-类型别名"><a href="#8-类型别名" class="headerlink" title="8 类型别名"></a>8 类型别名</h1><p>类型别名为现有类型提供替代名称。如果类型名称太长，您可以引入一个不同的较短的名称，并使用新的名称代替，类似于 C++ 中的 <code>using</code> 关键字。</p>
+<p>这种功能可以缩短长的泛型：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">typealias</span> NodeSet = Set&lt;Network.Node&gt;<br><span class="hljs-keyword">typealias</span> FileTable&lt;K&gt; = MutableMap&lt;K, MutableList&lt;File&gt;&gt;<br></code></pre></td></tr></table></figure>
+
+<p>还可以为函数类型提供不同的别名：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">typealias</span> MyHandler = (<span class="hljs-built_in">Int</span>, String, Any) -&gt; <span class="hljs-built_in">Unit</span><br><span class="hljs-keyword">typealias</span> Predicate&lt;T&gt; = (T) -&gt; <span class="hljs-built_in">Boolean</span><br></code></pre></td></tr></table></figure>
+
+<p>还可以为内部和嵌套类设置新的名称：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span> &#123;<br>	<span class="hljs-keyword">inner</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Inner</span><br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">B</span> &#123;<br>	<span class="hljs-keyword">inner</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Inner</span><br>&#125;<br><br><span class="hljs-keyword">typealias</span> AInner = A.Inner<br><span class="hljs-keyword">typealias</span> BInner = B.Inner<br></code></pre></td></tr></table></figure>
+
+    
+  </div>
+
+  
+    <div class="article-tags">
+      
+        <a href="/tags/kotlin/" class="tag-link">#kotlin</a>
+      
+        <a href="/tags/programming-language/" class="tag-link">#programming-language</a>
+      
+    </div>
+  
+</article>
+
+
+
+  <nav class="post-nav">
+    
+      <a href="/2026/05/14/design-patterns/behavior-patterns/strategy-pattern/" class="post-nav-prev">
+        <span class="post-nav-label">← 上一页</span>
+        <span class="post-nav-title">Strategy Pattern</span>
+      </a>
+    
+    
+      <a href="/2026/05/10/leetcode/0001-two-sum/" class="post-nav-next">
+        <span class="post-nav-label">下一页 →</span>
+        <span class="post-nav-title">0001 两数之和</span>
+      </a>
+    
+  </nav>
+
+
+          </div>
+        </div>
+      
+    </main>
+  </div>
+
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <p class="copyright">
+      &copy; 2024 - 2026 John Doe
+    </p>
+    <p class="powered">
+      由 <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/404AleFound" target="_blank">Mininote</a>
+    </p>
+  </div>
+  
+    <button class="back-to-top" aria-label="返回顶部">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+  
+</footer>
+
+
+  
+    <script src="/js/main.js"></script>
+  
+</body>
+</html>

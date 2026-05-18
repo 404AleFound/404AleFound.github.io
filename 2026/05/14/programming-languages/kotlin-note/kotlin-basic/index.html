@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>
+  
+    Kotlin Basic | 404AleFound
+  
+</title>
+
+
+
+
+
+<meta name="author" content="John Doe">
+
+
+  <link rel="shortcut icon" href="/favicon.svg">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<meta name="description" content="Note   Including four parts:  keywords and operators, package and imports, annotations, visibility modifiers.    1 Keywords1.1 Hard Keywords 硬关键字All of the below are hard keywords — they">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin Basic">
+<meta property="og:url" content="https://404alefound.github.io/2026/05/14/programming-languages/kotlin-note/kotlin-basic/index.html">
+<meta property="og:site_name" content="404AleFound">
+<meta property="og:description" content="Note   Including four parts:  keywords and operators, package and imports, annotations, visibility modifiers.    1 Keywords1.1 Hard Keywords 硬关键字All of the below are hard keywords — they">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-18T16:19:49.113Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="kotlin">
+<meta property="article:tag" content="programming-language">
+<meta name="twitter:card" content="summary">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-title">404AleFound</a>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-list">
+        
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">Home</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories" class="nav-link">Categories</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archives" class="nav-link">Archives</a>
+            </li>
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="site-wrapper">
+    
+    <main class="site-main has-toc">
+      
+        <div class="main-content main-with-toc">
+          
+            
+  <aside class="toc-sidebar">
+    <div class="toc-inner">
+      <p class="toc-title">目录</p>
+      <div class="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Keywords"><span class="toc-text">1 Keywords</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Hard-Keywords-%E7%A1%AC%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">1.1 Hard Keywords 硬关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Soft-Keywords"><span class="toc-text">1.2 Soft Keywords</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-Modifier-keywords"><span class="toc-text">1.3 Modifier keywords</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-Special-identifiers-%E7%89%B9%E6%AE%8A%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-text">1.4 Special identifiers 特殊标识符</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Operators-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">2 Operators 运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Package-and-Import-%E5%8C%85%E5%92%8C%E5%AF%BC%E5%85%A5"><span class="toc-text">4 Package and Import 包和导入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Annotations"><span class="toc-text">3 Annotations</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Visibility-modifiers"><span class="toc-text">4  Visibility modifiers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-Packages"><span class="toc-text">4.1 Packages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-Class-members"><span class="toc-text">4.2 Class members</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-Modules"><span class="toc-text">4.3 Modules</span></a></li></ol></li></ol>
+      </div>
+    </div>
+  </aside>
+
+
+          
+          <div class="content-area">
+            <article class="article">
+  
+    <header class="article-header article-header-full">
+      <h1 class="article-title">Kotlin Basic</h1>
+      <div class="article-meta">
+        <time class="article-date">2026-05-14</time>
+        
+          <span class="article-separator">·</span>
+          <span class="article-updated">updated 2026-05-19</span>
+        
+        
+          <span class="article-separator">·</span>
+          <span class="article-category">
+            
+              
+              <a href="/categories/programming-languages/">programming-languages</a>
+            
+              , 
+              <a href="/categories/programming-languages/kotlin-note/">kotlin-note</a>
+            
+          </span>
+        
+      </div>
+    </header>
+  
+
+  <div class="article-content">
+    
+      <div class="markdown-alert markdown-alert-note">
+  <p class="markdown-alert-title">
+    <svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
+    Note
+  </p>Including four parts:</p>
+<ol>
+<li>keywords and operators,</li>
+<li>package and imports,</li>
+<li>annotations,</li>
+<li>visibility modifiers.</li>
+</ol>
+
+</div>
+<h1 id="1-Keywords"><a href="#1-Keywords" class="headerlink" title="1 Keywords"></a>1 Keywords</h1><h2 id="1-1-Hard-Keywords-硬关键字"><a href="#1-1-Hard-Keywords-硬关键字" class="headerlink" title="1.1 Hard Keywords 硬关键字"></a>1.1 Hard Keywords 硬关键字</h2><p>All of the below are hard keywords — they cannot be used as identifiers.</p>
+<p>Declaration</p>
+<ul>
+<li><code>class</code>: declares a class.</li>
+<li><code>interface</code>: declares an interface.</li>
+<li><code>object</code>: declare a class and its single instance at once it is used.</li>
+<li><code>fun</code>: declare a function.</li>
+<li><code>typealias</code>: gives an existing type an alias, e.g. <code>typealias Name = String</code>.</li>
+<li><code>package</code>: Specifies the package the current file belongs to.</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">User</span>(<span class="hljs-keyword">val</span> name: String)                <span class="hljs-comment">// class</span><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Greetable</span> &#123; <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">hi</span><span class="hljs-params">()</span></span> &#125;            <span class="hljs-comment">// interface</span><br><span class="hljs-keyword">object</span> Logger &#123; <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">log</span><span class="hljs-params">(msg: <span class="hljs-type">String</span>)</span></span> &#123;&#125; &#125;   <span class="hljs-comment">// object(single instance)</span><br><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">add</span><span class="hljs-params">(a: <span class="hljs-type">Int</span>, b: <span class="hljs-type">Int</span>)</span></span> = a + b             <span class="hljs-comment">// fun</span><br><span class="hljs-keyword">typealias</span> UserId = String                   <span class="hljs-comment">// typealias</span><br><span class="hljs-keyword">package</span> com.example.demo                    <span class="hljs-comment">// package(at the first line of ifle)</span><br></code></pre></td></tr></table></figure>
+
+<p>Variables</p>
+<ul>
+<li><code>val</code>: Read-only property or local variable.</li>
+<li><code>var</code>: Mutable property or local variable.</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> pi = <span class="hljs-number">3.14</span>         <span class="hljs-comment">// val unchangable</span><br><span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>         <span class="hljs-comment">// var changable</span><br>count++               <span class="hljs-comment">// OK</span><br><span class="hljs-comment">// pi = 3.15          // compile error</span><br></code></pre></td></tr></table></figure>
+
+<p>Literals &amp; Constants</p>
+<ul>
+<li><code>true</code>:  the true value of the Boolean type.</li>
+<li><code>false</code>:  the false value of the Boolean type.</li>
+<li><code>null</code>: a reference that points to no object.</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> isReady: <span class="hljs-built_in">Boolean</span> = <span class="hljs-literal">true</span><br><span class="hljs-keyword">val</span> isDone: <span class="hljs-built_in">Boolean</span> = <span class="hljs-literal">false</span><br><span class="hljs-keyword">val</span> nothing: String? = <span class="hljs-literal">null</span><br></code></pre></td></tr></table></figure>
+
+<p>Control Flow</p>
+<ul>
+<li><code>if</code>:  begins an if expression.</li>
+<li><code>else</code>: the branch executed when the if condition is false.</li>
+<li><code>when</code>: Multi-branch expression — picks and runs one branch, like <code>switch</code> in <code>cpp</code>.</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// if / else</span><br><span class="hljs-keyword">val</span> max = <span class="hljs-keyword">if</span> (a &gt; b) a <span class="hljs-keyword">else</span> b<br><br><span class="hljs-comment">// when, like switch</span><br><span class="hljs-keyword">val</span> grade = <span class="hljs-keyword">when</span> (score) &#123;<br>    <span class="hljs-keyword">in</span> <span class="hljs-number">90.</span><span class="hljs-number">.100</span> -&gt; <span class="hljs-string">&quot;A&quot;</span><br>    <span class="hljs-keyword">in</span> <span class="hljs-number">60.</span><span class="hljs-number">.89</span>  -&gt; <span class="hljs-string">&quot;B&quot;</span><br>    <span class="hljs-keyword">else</span>       -&gt; <span class="hljs-string">&quot;F&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Loops</p>
+<ul>
+<li><code>return</code>: returns from the nearest enclosing function or anonymous function.</li>
+<li><code>throw</code>: throws an exception.</li>
+<li><code>try</code>: begins an exception-handling block.</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> <span class="hljs-number">1.</span><span class="hljs-number">.5</span>) println(i)            <span class="hljs-comment">// for</span><br><span class="hljs-keyword">while</span> (count &lt; <span class="hljs-number">10</span>) count++             <span class="hljs-comment">// while</span><br><span class="hljs-keyword">do</span> &#123; count++ &#125; <span class="hljs-keyword">while</span> (count &lt; <span class="hljs-number">10</span>)      <span class="hljs-comment">// do/while</span><br><br><span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> <span class="hljs-number">1.</span><span class="hljs-number">.10</span>) &#123;<br>	<span class="hljs-keyword">if</span> (i == <span class="hljs-number">3</span>) <span class="hljs-keyword">continue</span>               <span class="hljs-comment">// 跳过本轮</span><br>	<span class="hljs-keyword">if</span> (i == <span class="hljs-number">7</span>) <span class="hljs-keyword">break</span>                  <span class="hljs-comment">// 跳出循环</span><br>	println(i)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Jump &#x2F; Exceptions</p>
+<ul>
+<li><code>return</code>:  returns from the nearest enclosing function or anonymous function.</li>
+<li><code>throw</code>: throws an exception.</li>
+<li><code>try</code>:  begins an exception-handling block.</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><br></code></pre></td></tr></table></figure>
+
+<p>Type-Related</p>
+<ul>
+<li><code>is</code>: checks that a value is of a certain type; also valid in when branches.</li>
+<li><code>!is</code>:  checks that a value is not of a certain type; also valid in when branches.</li>
+</ul>
+<p>Type Casting</p>
+<ul>
+<li><code>as</code>: unsafe cast — throws if it fails. Also used to alias an import: <code>import x.y.Foo as Bar</code>.</li>
+<li><code>!as</code>:  safe cast — returns null instead of throwing on failure.</li>
+</ul>
+<p>Membership in a range &#x2F; collection</p>
+<ul>
+<li><code>in</code>:<ul>
+<li>is used as an infix operator to check that a value belongs to a range, a collection, or another entity that defines a ‘contains’ method.</li>
+<li>specifies the object being iterated in a for loop.</li>
+<li>is used in when expressions for the same purpose.</li>
+<li>marks a type parameter as contravariant.</li>
+</ul>
+</li>
+<li><code>!in</code>:<ul>
+<li>is used as an operator to check that a value does NOT belong to a range, a collection, or another entity that defines a ‘contains’ method.</li>
+<li>is used in when expressions for the same purpose.</li>
+</ul>
+</li>
+</ul>
+<p>Reference &amp; Constructors</p>
+<ul>
+<li><code>this</code>:<ul>
+<li>refers to the current receiver.</li>
+<li>calls another constructor of the same class from a secondary constructor.</li>
+</ul>
+</li>
+<li><code>super</code>:<ul>
+<li>refers to the superclass implementation of a method or property.</li>
+<li>calls the superclass constructor from a secondary constructor.</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-2-Soft-Keywords"><a href="#1-2-Soft-Keywords" class="headerlink" title="1.2 Soft Keywords"></a>1.2 Soft Keywords</h2><p>以下标记在适用的上下文中充当关键字，并且可以在其他上下文中用作标识符：</p>
+<ul>
+<li><code>by</code> 将接口的实现委托给另一个对象。将属性的访问器的实现委托给另一个对象。</li>
+<li><code>catch</code> 开始一个处理特定异常类型的块。</li>
+<li><code>constructor</code> 声明一个主构造函数或辅助构造函数。</li>
+<li><code>delegate</code> 用作注解使用位置目标。</li>
+<li><code>dynamic</code> 引用 Kotlin&#x2F;JS 代码中的一个动态类型。</li>
+<li><code>field</code> 用作注解使用位置目标。</li>
+</ul>
+<p>file 用作注解使用位置目标。</p>
+<p>finally 表示一个块，该块在 try 块退出时始终执行。</p>
+<p>get</p>
+<p>declares the getter of a property.<br>用于声明一个属性的 getter。</p>
+<p>is used as an annotation use-site target.<br>用作注解使用位置目标。</p>
+<p>import imports a declaration from another package into the current file.<br>import 从另一个包中导入一个声明到当前文件。</p>
+<p>init begins an initializer block.<br>init 开始一个初始化器块。</p>
+<p>param is used as an annotation use-site target.<br>param 用作注解使用位置目标。</p>
+<p>property is used as an annotation use-site target.<br>property 用作注解使用位置目标。</p>
+<p>receiver is used as an annotation use-site target.<br>receiver 用作注解使用位置目标。</p>
+<p>set</p>
+<p>declares the setter of a property.<br>声明一个属性的设置器。</p>
+<p>is used as an annotation use-site target.<br>用作注解使用位置目标。</p>
+<p>setparam is used as an annotation use-site target.<br>setparam 用作注解使用位置目标。</p>
+<p>value with the class keyword declares an inline class.<br>value 使用 class 关键字声明内联类。</p>
+<p>where specifies the constraints for a generic type parameter.<br>where 指定了泛型类型参数的约束。</p>
+<h2 id="1-3-Modifier-keywords"><a href="#1-3-Modifier-keywords" class="headerlink" title="1.3 Modifier keywords"></a>1.3 Modifier keywords</h2><p>The following tokens act as keywords in modifier lists of declarations, and they can be used as identifiers in other contexts:</p>
+<ul>
+<li><code>abstract</code> marks a class or member as abstract.</li>
+<li><code>actual</code> denotes a platform-specific implementation in multiplatform projects.</li>
+<li><code>annotation</code> declares an annotation class.</li>
+<li><code>companion</code> declares a companion object.</li>
+<li><code>const</code> marks a property as a compile-time constant.</li>
+<li><code>crossinline</code> forbids non-local returns in a lambda passed to an inline function.</li>
+<li><code>data</code> instructs the compiler to generate canonical members for a class.</li>
+<li><code>enum</code> declares an enumeration.</li>
+<li><code>expect</code> marks a declaration as platform-specific, expecting an implementation in platform modules.</li>
+<li><code>external</code> marks a declaration as implemented outside of Kotlin (accessible through JNI or in JavaScript).</li>
+<li><code>final</code> forbids overriding a member.</li>
+<li><code>infix</code> allows calling a function using infix notation.</li>
+<li><code>inline</code> tells the compiler to inline a function and the lambdas passed to it at the call site.</li>
+<li><code>inner</code> allows referring to an outer class instance from a nested class.</li>
+<li><code>internal</code> marks a declaration as visible in the current module.</li>
+<li><code>lateinit</code> allows initializing a non-nullable property outside of a constructor.</li>
+<li><code>noinline</code> turns off inlining of a <code>lambda</code> passed to an inline function.</li>
+<li><code>open</code> allows subclassing a class or overriding a member.</li>
+<li><code>operator</code> marks a function as overloading an operator or implementing a convention.</li>
+<li><code>out</code> marks a type parameter as covariant.</li>
+<li><code>override</code> marks a member as an override of a superclass member.</li>
+<li><code>private</code> marks a declaration as visible in the current class or file.</li>
+<li><code>protected</code> marks a declaration as visible in the current class and its subclasses.</li>
+<li><code>public</code> marks a declaration as visible anywhere.</li>
+<li><code>reified</code> marks a type parameter of an inline function as accessible at runtime.</li>
+<li><code>sealed</code> declares a sealed class (a class with restricted subclassing).</li>
+<li><code>suspend</code> marks a function or lambda as suspending (usable as a coroutine).</li>
+<li><code>tailrec</code> marks a function as tail-recursive (allowing the compiler to replace recursion with iteration).</li>
+<li><code>vararg</code> allows passing a variable number of arguments for a parameter.</li>
+</ul>
+<h2 id="1-4-Special-identifiers-特殊标识符"><a href="#1-4-Special-identifiers-特殊标识符" class="headerlink" title="1.4 Special identifiers 特殊标识符"></a>1.4 Special identifiers 特殊标识符</h2><p>The following identifiers are defined by the compiler <strong>in specific contexts</strong>, and they can be used as regular identifiers in other contexts:</p>
+<ul>
+<li><code>field</code> is used inside a property accessor to refer to the backing field of the property.</li>
+<li><code>it</code> is used inside a lambda to refer to its parameter implicitly.</li>
+</ul>
+<h1 id="2-Operators-运算符"><a href="#2-Operators-运算符" class="headerlink" title="2 Operators 运算符"></a>2 Operators 运算符</h1><h1 id="4-Package-and-Import-包和导入"><a href="#4-Package-and-Import-包和导入" class="headerlink" title="4 Package and Import 包和导入"></a>4 Package and Import 包和导入</h1><h1 id="3-Annotations"><a href="#3-Annotations" class="headerlink" title="3 Annotations"></a>3 Annotations</h1><h1 id="4-Visibility-modifiers"><a href="#4-Visibility-modifiers" class="headerlink" title="4  Visibility modifiers"></a>4  Visibility modifiers</h1><p>Classes, objects, interfaces, <strong>constructors</strong>, and functions, as well as properties and their <strong>setters</strong>, can have visibility modifiers. <strong>Getters</strong> always have the same visibility as their properties.</p>
+<div class="markdown-alert markdown-alert-important">
+  <p class="markdown-alert-title">
+    <svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.747.747 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>
+    Important
+  </p>A Kotlin property is really a hidden backing field plus two accessors: a <strong>getter</strong> (called on reads) and a <strong>setter</strong> (called on writes).</p>
+<ul>
+<li><code>user.name</code> invokes the getter.</li>
+<li><code>user.name = &quot;Bob&quot;</code> invokes the setter.</li>
+</ul>
+<p><code>val</code> has only a getter — that’s why it’s read-only; <code>var</code> has both.<br>Here are the use of it:</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">var</span>/<span class="hljs-keyword">val</span> properity_name : type = intial_value<br>	<span class="hljs-keyword">get</span>() &#123; <span class="hljs-comment">/** ... */</span>&#125;<br>	<span class="hljs-keyword">set</span>(value) &#123; <span class="hljs-comment">/** ... */</span>&#125;<br></code></pre></td></tr></table></figure>
+</div>
+<p>There are four visibility modifiers in Kotlin: <code>private</code>, <code>protected</code>, <code>internal</code>, and <code>public</code>. The default visibility is <code>public</code>.</p>
+<p>The below content will show how the modifiers apply to different types of declaring scopes.</p>
+<h2 id="4-1-Packages"><a href="#4-1-Packages" class="headerlink" title="4.1 Packages"></a>4.1 Packages</h2><figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// file name: example.kt</span><br><span class="hljs-keyword">package</span> foo<br><br><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span> &#123; ... &#125; <span class="hljs-comment">// 1 visible inside example.kt</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">var</span> bar: <span class="hljs-built_in">Int</span> = <span class="hljs-number">5</span> <span class="hljs-comment">// 2 property is visible everywhere</span><br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">set</span> <span class="hljs-comment">// 3 setter is visible only in example.kt</span><br><br><span class="hljs-keyword">internal</span> <span class="hljs-keyword">val</span> baz = <span class="hljs-number">6</span> <span class="hljs-comment">// 4 visible inside the same module</span><br><br><span class="hljs-comment">// 5 The `protected` modifier is not available for top-level declarations.</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="4-2-Class-members"><a href="#4-2-Class-members" class="headerlink" title="4.2 Class members"></a>4.2 Class members</h2><figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">open</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Outer</span> &#123;<br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> a = <span class="hljs-number">1</span><br>	<span class="hljs-comment">// 1 the member is visiable inside this class only.</span><br><br>	<span class="hljs-keyword">protected</span> <span class="hljs-keyword">open</span> <span class="hljs-keyword">val</span> b = <span class="hljs-number">2</span><br>	<span class="hljs-comment">// 2 the member is visiable inside this class only</span><br>	<span class="hljs-comment">// but it can also visiable for subclasses</span><br><br>	<span class="hljs-keyword">internal</span> <span class="hljs-keyword">open</span> <span class="hljs-keyword">val</span> c = <span class="hljs-number">3</span><br>	<span class="hljs-comment">// 3 means that any client inside this module</span><br>	<span class="hljs-comment">// who sees the declaring class sees its `internal` members.</span><br><br>	<span class="hljs-keyword">val</span> d = <span class="hljs-number">4</span><br>	<span class="hljs-comment">// 4 public by default</span><br>	<span class="hljs-comment">// any client who sees the declaring class seesits `public` members.</span><br><br>	<span class="hljs-keyword">protected</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Nested</span> &#123;<br>		<span class="hljs-keyword">public</span> <span class="hljs-keyword">val</span> e: <span class="hljs-built_in">Int</span> = <span class="hljs-number">5</span><br><br>	&#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Subclass</span> : <span class="hljs-type">Outer</span>() &#123;<br>	<span class="hljs-comment">// a is not visible</span><br>	<span class="hljs-comment">// b, c and d are visible</span><br>	<span class="hljs-comment">// Nested and e are visible</span><br><br>	<span class="hljs-keyword">override</span> <span class="hljs-keyword">val</span> b = <span class="hljs-number">5</span> <span class="hljs-comment">// &#x27;b&#x27; is protected</span><br>	<span class="hljs-keyword">override</span> <span class="hljs-keyword">val</span> c = <span class="hljs-number">7</span> <span class="hljs-comment">// &#x27;c&#x27; is internal</span><br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Unrelated</span>(o: Outer) &#123;<br>	<span class="hljs-comment">// o.a, o.b are not visible</span><br>	<span class="hljs-comment">// o.c and o.d are visible (same module)</span><br>	<span class="hljs-comment">// Outer.Nested is not visible, and Nested::e is not visible either</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="4-3-Modules"><a href="#4-3-Modules" class="headerlink" title="4.3 Modules"></a>4.3 Modules</h2><p>The <code>internal</code> visibility modifier means that the member is visible within the same module. More specifically, a module is a set of Kotlin files compiled together, for example:</p>
+<ul>
+<li>An IntelliJ IDEA module.</li>
+<li>A Maven project.</li>
+<li>A Gradle source set (with the exception that the <code>test</code> source set can access the internal declarations of <code>main</code>).</li>
+</ul>
+
+    
+  </div>
+
+  
+    <div class="article-tags">
+      
+        <a href="/tags/kotlin/" class="tag-link">#kotlin</a>
+      
+        <a href="/tags/programming-language/" class="tag-link">#programming-language</a>
+      
+    </div>
+  
+</article>
+
+
+
+  <nav class="post-nav">
+    
+      <a href="/2026/05/14/design-patterns/behavior-patterns/observer-pattern/" class="post-nav-prev">
+        <span class="post-nav-label">← 上一页</span>
+        <span class="post-nav-title">Observer Pattern</span>
+      </a>
+    
+    
+      <a href="/2026/05/14/design-patterns/behavior-patterns/strategy-pattern/" class="post-nav-next">
+        <span class="post-nav-label">下一页 →</span>
+        <span class="post-nav-title">Strategy Pattern</span>
+      </a>
+    
+  </nav>
+
+
+          </div>
+        </div>
+      
+    </main>
+  </div>
+
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <p class="copyright">
+      &copy; 2024 - 2026 John Doe
+    </p>
+    <p class="powered">
+      由 <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/404AleFound" target="_blank">Mininote</a>
+    </p>
+  </div>
+  
+    <button class="back-to-top" aria-label="返回顶部">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+  
+</footer>
+
+
+  
+    <script src="/js/main.js"></script>
+  
+</body>
+</html>

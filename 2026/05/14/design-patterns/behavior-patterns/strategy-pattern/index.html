@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>
+  
+    Strategy Pattern | 404AleFound
+  
+</title>
+
+
+
+
+
+<meta name="author" content="John Doe">
+
+
+  <link rel="shortcut icon" href="/favicon.svg">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<meta name="description" content="Note   Strategy pattern will define a family of algorithms, encapsulate each into its own class, and make them interchangeable — so the caller never needs to know the details.   1 Backgro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Strategy Pattern">
+<meta property="og:url" content="https://404alefound.github.io/2026/05/14/design-patterns/behavior-patterns/strategy-pattern/index.html">
+<meta property="og:site_name" content="404AleFound">
+<meta property="og:description" content="Note   Strategy pattern will define a family of algorithms, encapsulate each into its own class, and make them interchangeable — so the caller never needs to know the details.   1 Backgro">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://404alefound.github.io/2026/05/14/design-patterns/behavior-patterns/strategy-pattern/navigator-route-strategy-class-diagram.png">
+<meta property="og:image" content="https://404alefound.github.io/2026/05/14/design-patterns/behavior-patterns/strategy-pattern/strategy-pattern-context-interface-diagram.png">
+<meta property="article:published_time" content="2026-05-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-18T16:19:49.119Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="design-patterns">
+<meta property="article:tag" content="behavior-pattern">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://404alefound.github.io/2026/05/14/design-patterns/behavior-patterns/strategy-pattern/navigator-route-strategy-class-diagram.png">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-title">404AleFound</a>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-list">
+        
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">Home</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories" class="nav-link">Categories</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archives" class="nav-link">Archives</a>
+            </li>
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="site-wrapper">
+    
+    <main class="site-main has-toc">
+      
+        <div class="main-content main-with-toc">
+          
+            
+  <aside class="toc-sidebar">
+    <div class="toc-inner">
+      <p class="toc-title">目录</p>
+      <div class="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Background"><span class="toc-text">1 Background</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Solution-Strategy-Pattern"><span class="toc-text">2 Solution: Strategy Pattern</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Implement"><span class="toc-text">3 Implement</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Example"><span class="toc-text">4 Example</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-Analysis"><span class="toc-text">5 Analysis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-Reference"><span class="toc-text">6 Reference</span></a></li></ol>
+      </div>
+    </div>
+  </aside>
+
+
+          
+          <div class="content-area">
+            <article class="article">
+  
+    <header class="article-header article-header-full">
+      <h1 class="article-title">Strategy Pattern</h1>
+      <div class="article-meta">
+        <time class="article-date">2026-05-14</time>
+        
+          <span class="article-separator">·</span>
+          <span class="article-updated">updated 2026-05-19</span>
+        
+        
+          <span class="article-separator">·</span>
+          <span class="article-category">
+            
+              
+              <a href="/categories/design-patterns/">design-patterns</a>
+            
+              , 
+              <a href="/categories/design-patterns/behavior-patterns/">behavior-patterns</a>
+            
+          </span>
+        
+      </div>
+    </header>
+  
+
+  <div class="article-content">
+    
+      <div class="markdown-alert markdown-alert-note">
+  <p class="markdown-alert-title">
+    <svg viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
+    Note
+  </p>Strategy pattern will define a family of algorithms, encapsulate each into its own class, and make them interchangeable — so the caller never needs to know the details.</p>
+
+</div>
+<h1 id="1-Background"><a href="#1-Background" class="headerlink" title="1 Background"></a>1 Background</h1><p>Imagine you’re building a navigation app. It starts simple — just driving routes. Then you add walking, transit, cycling… Each new algorithm bloats the main class a little more. Fix one bug, the whole class shakes. Add a feature, merge conflicts everywhere.</p>
+<p>That’s exactly the problem Strategy Pattern was designed to solve.</p>
+<h1 id="2-Solution-Strategy-Pattern"><a href="#2-Solution-Strategy-Pattern" class="headerlink" title="2 Solution: Strategy Pattern"></a>2 Solution: Strategy Pattern</h1><p><strong>Strategy pattern will define a family of algorithms, encapsulate each into its own class, and make them interchangeable — so the caller never needs to know the details.</strong></p>
+<img src="/2026/05/14/design-patterns/behavior-patterns/strategy-pattern/navigator-route-strategy-class-diagram.png" class="" title="navigator-route-strategy-class-diagram">
+
+<p>There are three layers in the Strategy pattern:</p>
+<ul>
+<li>the <strong>Context</strong>, which holds a reference to a strategy and delegates work to it without knowing the details;</li>
+<li>the <strong>Strategy Interface</strong>, a single shared contract that all algorithms implement;</li>
+<li>the <strong>Concrete Strategies</strong>, each encapsulating one algorithm independently — swappable at any time by the client.</li>
+</ul>
+<img src="/2026/05/14/design-patterns/behavior-patterns/strategy-pattern/strategy-pattern-context-interface-diagram.png" class="" title="strategy-pattern-context-interface-diagram">
+<h1 id="3-Implement"><a href="#3-Implement" class="headerlink" title="3 Implement"></a>3 Implement</h1><ul>
+<li><strong>STEP 1</strong>: <strong>Find</strong> the algorithm in the context class that changes frequently — often a big if&#x2F;else or switch.</li>
+<li><strong>STEP 2</strong>: Declare a common strategy <strong>interface</strong> shared by all algorithm variants.</li>
+<li><strong>STEP 3</strong>: Extract each algorithm into its own <strong>concrete class</strong>, all implementing that interface.</li>
+<li><strong>STEP 4</strong>: In the <strong>context</strong> class, add a field to hold a strategy reference and a setter to swap it out.</li>
+<li><strong>STEP 5</strong>: The <strong>client</strong> picks the right strategy and injects it into the context.</li>
+</ul>
+<h1 id="4-Example"><a href="#4-Example" class="headerlink" title="4 Example"></a>4 Example</h1><p><strong>STEP 1</strong>: <strong>Find</strong> the algorithm in the context class that changes frequently — often a big if&#x2F;else or switch. In this example, the context uses multiple <strong>strategies</strong> to execute various arithmetic operations.</p>
+<p><strong>STEP 2</strong>: Declare a common strategy <strong>interface</strong> shared by all algorithm variants.</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Strategy</span> <span class="hljs-title">is</span><br>    method execute(a, b)<br></code></pre></td></tr></table></figure>
+
+<p><strong>STEP 3</strong>: Extract each algorithm into its own <strong>concrete class</strong>, all implementing that interface.</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ConcreteStrategyAdd</span> <span class="hljs-title">implements</span> <span class="hljs-title">Strategy</span> <span class="hljs-title">is</span><br>    method execute(a, b) <span class="hljs-keyword">is</span><br>        <span class="hljs-keyword">return</span> a + b<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ConcreteStrategySubtract</span> <span class="hljs-title">implements</span> <span class="hljs-title">Strategy</span> <span class="hljs-title">is</span><br>    method execute(a, b) <span class="hljs-keyword">is</span><br>        <span class="hljs-keyword">return</span> a - b<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ConcreteStrategyMultiply</span> <span class="hljs-title">implements</span> <span class="hljs-title">Strategy</span> <span class="hljs-title">is</span><br>    method execute(a, b) <span class="hljs-keyword">is</span><br>        <span class="hljs-keyword">return</span> a * b<br></code></pre></td></tr></table></figure>
+
+<p><strong>STEP 4</strong>: In the <strong>context</strong> class, add a field to hold a strategy reference and a setter to swap it out.</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// The context defines the interface of interest to clients.</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Context</span> <span class="hljs-title">is</span><br>    <span class="hljs-comment">// The context maintains a reference to one of the strategy</span><br>    <span class="hljs-comment">// objects. The context doesn&#x27;t know the concrete class of a</span><br>    <span class="hljs-comment">// strategy. It should work with all strategies via the</span><br>    <span class="hljs-comment">// strategy interface.</span><br>    <span class="hljs-keyword">private</span> strategy: Strategy<br><br>    <span class="hljs-comment">// Usually the context accepts a strategy through the</span><br>    <span class="hljs-comment">// constructor, and also provides a setter so that the</span><br>    <span class="hljs-comment">// strategy can be switched at runtime.</span><br>    method setStrategy(Strategy strategy) <span class="hljs-keyword">is</span><br>        <span class="hljs-keyword">this</span>.strategy = strategy<br><br>    <span class="hljs-comment">// The context delegates some work to the strategy object</span><br>    <span class="hljs-comment">// instead of implementing multiple versions of the</span><br>    <span class="hljs-comment">// algorithm on its own.</span><br>    method executeStrategy(int a, int b) <span class="hljs-keyword">is</span><br>        <span class="hljs-keyword">return</span> strategy.execute(a, b)<br></code></pre></td></tr></table></figure>
+
+<p><strong>STEP 5</strong>: The <strong>client</strong> picks the right strategy and injects it into the context.</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ExampleApplication</span> <span class="hljs-title">is</span><br>    method main() <span class="hljs-keyword">is</span><br>        Create context <span class="hljs-keyword">object</span>.<br><br>        Read first number.<br>        Read last number.<br>        Read the desired action from user input.<br><br>        <span class="hljs-keyword">if</span> (action == addition) then<br>            context.setStrategy(new ConcreteStrategyAdd())<br><br>        <span class="hljs-keyword">if</span> (action == subtraction) then<br>            context.setStrategy(new ConcreteStrategySubtract())<br><br>        <span class="hljs-keyword">if</span> (action == multiplication) then<br>            context.setStrategy(new ConcreteStrategyMultiply())<br><br>        result = context.executeStrategy(First number, Second number)<br><br>        Print result.<br></code></pre></td></tr></table></figure>
+<h1 id="5-Analysis"><a href="#5-Analysis" class="headerlink" title="5 Analysis"></a>5 Analysis</h1><p><strong>Use Strategy when:</strong><br>  1. You need to switch algorithms at runtime.<br>  2. You have many similar classes differing only in behavior.<br>  3. You want to isolate business logic from algorithm details.<br>  4. A massive if&#x2F;else is switching between algorithm variants.</p>
+<p><strong>Advantages:</strong><br>  1. Swap algorithms at runtime freely<br>  2. Decouples algorithm implementation from the caller<br>  3. Favors composition over inheritance<br>  4. Open&#x2F;Closed Principle — add new strategies without touching Context</p>
+<p><strong>Disadvantages:</strong><br>  1. Overkill if you only have a few stable algorithms<br>  2. Clients need to know the differences between strategies to pick the right one<br>  3. Modern languages can use lambdas instead — no extra classes or interfaces needed</p>
+<h1 id="6-Reference"><a href="#6-Reference" class="headerlink" title="6 Reference"></a>6 Reference</h1><p><a target="_blank" rel="noopener" href="https://refactoring.guru/design-patterns/strategy">Strategy</a></p>
+
+    
+  </div>
+
+  
+    <div class="article-tags">
+      
+        <a href="/tags/design-patterns/" class="tag-link">#design-patterns</a>
+      
+        <a href="/tags/behavior-pattern/" class="tag-link">#behavior-pattern</a>
+      
+    </div>
+  
+</article>
+
+
+
+  <nav class="post-nav">
+    
+      <a href="/2026/05/14/programming-languages/kotlin-note/kotlin-basic/" class="post-nav-prev">
+        <span class="post-nav-label">← 上一页</span>
+        <span class="post-nav-title">Kotlin Basic</span>
+      </a>
+    
+    
+      <a href="/2026/05/13/programming-languages/kotlin-note/kotlin-types/" class="post-nav-next">
+        <span class="post-nav-label">下一页 →</span>
+        <span class="post-nav-title">Kotlin Types</span>
+      </a>
+    
+  </nav>
+
+
+          </div>
+        </div>
+      
+    </main>
+  </div>
+
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <p class="copyright">
+      &copy; 2024 - 2026 John Doe
+    </p>
+    <p class="powered">
+      由 <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/404AleFound" target="_blank">Mininote</a>
+    </p>
+  </div>
+  
+    <button class="back-to-top" aria-label="返回顶部">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+  
+</footer>
+
+
+  
+    <script src="/js/main.js"></script>
+  
+</body>
+</html>
